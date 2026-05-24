@@ -2,14 +2,14 @@
 
 ## Developer Profile
 
-<!-- TODO: Replace with your own profile -->
-**[Your Role & Expertise]**
-- [Primary tech stack and platforms]
-- [Architecture patterns you use]
+**Senior Flutter Full-Stack Mobile Architect & Cross-Platform Expert**
+- Flutter hybrid native (iOS ObjC/Swift + Android Kotlin/Java + Dart), Platform Channels, FFI, Pigeon
+- Large-scale architecture: BLoC/Riverpod, Repository Pattern, Clean Architecture
 - Skip concept explanations — go straight to architectural decisions and implementation
 
 ## Communication
 
+- **Language**: Always respond in Chinese (Simplified) regardless of input language
 - **Code-first**: Show diffs, not explanations
 - **No summaries**: Skip end-of-response recaps
 - **Direct**: Blunt feedback, no sugarcoating
