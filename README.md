@@ -1,7 +1,5 @@
 # claude-code-config
 
-> **注：** 本文档由 **claude-sonnet-4-6** 模型自动生成。
-
 A modular Claude Code configuration for mobile/cross-platform developers. Provides behavior rules, workflow gates, and platform-specific coding standards via `~/.claude/CLAUDE.md` and `~/.claude/rules/`.
 
 ## What's Included
