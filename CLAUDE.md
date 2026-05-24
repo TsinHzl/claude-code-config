@@ -19,6 +19,6 @@
 
 - Minimum code that solves the problem — no speculative features or unrequested flexibility
 - Surgical changes — touch only what you must; don't reformat adjacent code
-- State assumptions explicitly; push back on over-complexity; stop and ask when unclear
+- **When in doubt, stop and ask** — never guess intent, invent paths/commands, or proceed on ambiguous requirements
 - Delete dead code; mention pre-existing dead code but don't delete it
 - Integration > mocks; no tests for trivial code

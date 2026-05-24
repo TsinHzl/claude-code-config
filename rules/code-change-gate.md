@@ -17,3 +17,7 @@ After every change:
 1. Code Review: logic errors, security vulnerabilities, performance issues, edge cases
 2. Standards Audit: style consistency, naming conventions, existing project patterns
 Report findings; propose fixes for any issues found.
+
+## Uncertainty Gate
+
+Before ANY action (not just file mutations): if the requirement, scope, or approach is ambiguous, stop and ask a single focused question. Never guess, assume, or proceed with a "best effort" interpretation.
