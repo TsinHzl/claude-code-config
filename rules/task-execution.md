@@ -4,6 +4,9 @@ description: TaskCreate/TaskUpdate workflow for multi-step tasks, planning, and 
 inclusion: always
 ---
 
+> When the OpenSpec workflow is active (`openspec/changes/<name>/` exists and status is IN_PROGRESS),
+> use `tasks.md` as the task tracker instead of TaskCreate. OpenSpec takes precedence for complex changes.
+
 For multi-file features, architecture analysis, brainstorming, or any task with 3+ steps:
 
 1. Use `TaskCreate` to build a structured progress tree — no plain-text plans in chat

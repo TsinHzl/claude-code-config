@@ -1,22 +1,44 @@
-# OpenSpec 规范驱动开发（自动内置模式）
+---
+name: OpenSpec Workflow
+description: Structured 5-phase change management; triggers on complexity (new feature, refactor, cross-subsystem), NOT on file count alone
+inclusion: always
+---
+
+# OpenSpec 规范驱动开发（强制步进模式）
 
 ## 核心行为
+
 遇到复杂需求时，Claude 自动创建并维护 `openspec/` 目录下的所有规范文件，
-全程驱动五阶段工作流（阶段 0–4）。用户无需安装任何工具，无需手动执行任何命令。
+全程驱动五阶段工作流（阶段 0–4）。
+
+**每个阶段都是独立的门控节点（Phase Gate）：**
+- 前一阶段的退出条件未满足，绝对不进入下一阶段
+- 每个阶段有明确的「进入声明 → 文件操作 → 对话输出 → 退出条件」四要素
+- 用户未明确回复 **[Y]** 前，禁止推进到下一阶段
 
 ---
 
 ## 一、触发条件（满足任意一项自动启用）
 
-- 涉及 2 个及以上文件的修改
-- 新功能或新模块开发
-- 重构、架构调整
-- 接口 / 数据协议变更
-- 用户描述的需求包含多个独立步骤或子系统交互
+**触发**（满足任意一项）：
 
-不满足上述条件的小改动（单文件 bug fix、typo 修正等）直接执行，不走本流程。
+- **新功能或新模块** — 引入新的用户可见行为或新的公开 API
+- **重构 / 架构调整** — 改变现有代码的组织方式、层次边界或依赖关系
+- **接口 / 数据协议变更** — 修改公开 API 签名、数据模型字段或跨系统协议
+- **跨子系统协同变更** — 多个相互独立的模块 / 层之间需要同步修改且存在耦合风险
+- **用户需求包含多个独立子任务** — 明确列出 2 个以上不同功能点或交付物
 
-> **判断原则：** 修改文件数不确定时，保守判断为触发；多触发一次比遗漏流程代价小。
+**不触发**（直接执行，不走本流程）：
+
+- Bug fix — 即使涉及多个文件，只要改动局限于修复同一问题
+- typo / 格式 / 注释修正
+- 配置微调（版本号、构建设置、lint 规则等）
+- 为现有功能补充测试
+- 文档更新
+- 单纯命名重构（rename without behavior change）
+
+> **判断原则：** 以变更的**复杂度和影响范围**为准，而非文件数量。
+> 不确定是否触发时，直接询问用户："此需求是否需要走 OpenSpec 流程？"——不默认触发。
 
 ---
 
@@ -34,7 +56,7 @@ openspec/
 │           └── <domain>/
 │               └── spec.md
 └── archive/                # 已完成归档的变更
-    └── <change-name>_<YYYYMMDD>/
+    └── YYYY-MM-DD-<change-name>/
 ```
 
 ---
@@ -42,7 +64,12 @@ openspec/
 ## 三、project.md 初始化（所有阶段前置检查）
 
 **在进入任何阶段之前**，检查 `openspec/project.md` 是否存在：
-- 不存在 → 先创建，再继续
+- 不存在 → 在对话中提示：
+  ```
+  ⚠️ openspec/project.md 不存在。建议先运行 /opsx:init 扫描仓库生成完整项目上下文。
+  回复 [运行] 执行 /opsx:init，或回复 [跳过] 使用空模板继续。
+  ```
+  等待用户回复后再继续；若用户选择跳过，则按模板手动创建。
 - 已存在 → 直接参考其内容，跳过创建
 
 ```markdown
@@ -63,7 +90,49 @@ openspec/
 
 ---
 
-## 四、阶段 0 — 需求澄清（按需触发）
+## 三点五、config.yaml 集成（任何阶段前强制读取）
+
+在触发 OpenSpec 工作流后，**进入任何阶段之前**，检查并读取 `openspec/config.yaml`：
+
+**不存在时：** 在对话中提示：
+```
+⚠️ openspec/config.yaml 不存在，artifact 生成将缺少项目约束注入。
+建议先运行 /opsx:init skill 生成配置文件以获得最佳质量。
+是否继续？回复 [继续] 或 [先运行 init]
+```
+等待用户回复后再继续。
+
+**已存在时：** 读取并解析以下字段，在后续所有 artifact 生成步骤中作为**约束条件**应用：
+- `context`：项目技术栈、架构、平台信息
+- `rules.specs`：spec artifact 生成约束
+- `rules.tasks`：tasks artifact 生成约束
+- `rules.design`：design artifact 生成约束
+
+> **注意：** `context` 和 `rules` 是约束注入，不得将其内容原文复制到任何 artifact 文件中。
+
+---
+
+## 四、会话恢复检查（OpenSpec 工作流触发时）
+
+**触发 OpenSpec 工作流后，进入阶段 0 之前**，检查是否存在未完成的变更：
+
+```bash
+[ -d "openspec/changes" ] && grep -rl "状态：IN_PROGRESS" openspec/changes/ 2>/dev/null
+```
+
+若存在，在对话中主动提示：
+
+```
+⚠️ 检测到未完成的变更：<change-name>（状态：IN_PROGRESS）
+当前任务进度：[已完成 N/M 项]
+是否继续此变更，还是开始新任务？请回复 [继续] 或 [新任务]
+```
+
+等待用户回复后再继续。
+
+---
+
+## 五、阶段 0 — 需求澄清（按需触发）
 
 收到需求后，**起草提案之前**，优先参考 `openspec/project.md` 中已有的上下文。
 若仍存在以下任意情况，先向用户提问：
@@ -81,15 +150,28 @@ openspec/
 
 ---
 
-## 五、阶段 1 — 自动起草提案
+## 六、阶段 1 — 起草提案
 
-需求澄清完成后，在写任何业务代码之前，Claude 自动执行：
+> **进入声明：** 在对话中输出 `> 🔵 [阶段 1] 正在起草变更提案：<change-name>`
 
-### 5.1 确定 change-name
-用 kebab-case 命名，描述变更内容，例如：
-`add-ride-filter`、`refactor-payment-flow`、`update-location-protocol`
+需求澄清完成后，**严格按以下顺序**执行每一步：
 
-### 5.2 创建 `openspec/changes/<change-name>/proposal.md`
+### 步骤 1：确定 change-name
+用 kebab-case 命名，例如：`add-ride-filter`、`refactor-payment-flow`
+
+### 步骤 2：创建 proposal.md
+
+创建文件后，**立即在对话中完整展示文件原文**（代码块，不得用摘要替代）：
+
+````
+📄 **openspec/changes/<change-name>/proposal.md**
+
+```markdown
+[proposal.md 完整内容原文]
+```
+````
+
+proposal.md 结构：
 
 ```markdown
 # 变更提案：<change-name>
@@ -114,7 +196,19 @@ openspec/
 <识别的风险及应对策略>
 ```
 
-### 5.3 创建 `openspec/changes/<change-name>/tasks.md`
+### 步骤 3：创建 tasks.md
+
+创建文件后，**立即在对话中完整展示文件原文**（代码块，不得用摘要替代）：
+
+````
+📄 **openspec/changes/<change-name>/tasks.md**
+
+```markdown
+[tasks.md 完整内容原文]
+```
+````
+
+tasks.md 结构：
 
 ```markdown
 # 任务清单：<change-name>
@@ -133,35 +227,109 @@ openspec/
 
 > **任务粒度原则：** 每个任务应独立可验证，预计工时不超过 2 小时；过大则拆分，过细则合并。
 
-### 5.4 创建规范增量 `openspec/changes/<change-name>/specs/<domain>/spec.md`
-（涉及接口、状态、业务规则时创建）
+### 步骤 4：创建 spec.md 和 design.md
+
+**spec.md — 满足以下任意一项则必须创建，否则可跳过：**
+- 涉及公开 API 或接口签名变更
+- 涉及状态机或业务流程
+- 涉及跨系统数据协议
+- 行为有明确的"当 X 发生时应产生 Y 结果"的可验证场景
+
+使用 WHEN/THEN 场景格式：
 
 ```markdown
-### Requirement: <需求名称>
-- The system SHALL <约束描述>
-
-#### Scenario: <场景名称>
-- GIVEN <前置条件>
-- WHEN <触发事件>
-- THEN <预期结果>
+## 新增需求
+### 需求：<名称>
+#### 场景：<名称>
+- **WHEN** <条件>
+- **THEN** <期望结果>
 ```
 
-### 5.5 展示提案摘要，等待用户确认
-输出 proposal.md 核心内容 + tasks.md 完整任务列表，明确告知：
-**"以上是本次变更的提案，确认后开始实施"**，等待用户回复。
+**design.md — 满足以下任意一项则必须创建，否则可跳过：**
+- 存在多个可行技术方案需要显式决策
+- 涉及架构模式选型（分层、通信机制、数据流向）
+- 有需要记录的技术权衡或约束理由
+
+使用以下结构：
+
+```markdown
+## 上下文
+## 目标 / 非目标
+## 决策
+## 风险 / 权衡
+```
+
+创建的文件均须在对话中展示完整内容（代码块，不得用摘要替代）。
+
+> **Artifact 依赖约束：** tasks.md 必须在 spec.md 和 design.md 内容确定后才起草，以确保任务与规范完全对齐。
+
+### 步骤 4.5：Sub-agent Proposal 质量审查
+
+在向用户展示提案前，使用 `Agent` tool 启动独立审查 sub-agent。
+
+**Prompt 模板（不得包含任何正面定性语句）：**
+
+```
+请独立审查以下变更提案的质量：
+
+[proposal.md 完整内容]
+[tasks.md 完整内容]
+
+评估维度：
+1. 背景与目标是否清晰、无歧义？
+2. 每个任务是否原子化、可独立验证？
+3. 验收标准是否可量化？
+4. 风险识别是否有明显遗漏？
+5. 范围边界（In / Out of Scope）是否清晰？
+
+输出格式：
+- Issues: [需要补充或修正的具体条目，无则填 none]
+- Verdict: READY / NEEDS_REVISION
+
+**语言要求：你的所有输出必须使用简体中文。**
+```
+
+**收到结果后：**
+- `READY` → 直接进入步骤 5
+- `NEEDS_REVISION` → 先按 Issues 修正 proposal.md / tasks.md，重新运行，直到 `READY`
+
+### 步骤 5：硬性门控 — 等待用户确认
+
+在对话中输出以下固定格式，**逐字不得修改**：
+
+```
+---
+以上是本次变更的完整提案。
+
+请确认：
+- 提案内容是否准确？
+- 任务清单是否完整？
+- 验收标准是否合理？
+
+确认实施请回复 [Y]，需要修改请说明具体内容。
+---
+```
+
+**在用户回复 [Y] 之前，禁止调用任何 Edit / Write / Bash 工具（proposal/tasks 文件创建除外）。**
 
 ---
 
-## 六、阶段 2 — 审查确认
+## 七、阶段 2 — 审查确认
 
-用户确认提案后：
-1. 将 `tasks.md` 状态改为 `IN_REVIEW`
-2. 进入阶段 3 实施
+> **进入条件：** 用户已回复 [Y]
+
+**必须按顺序执行，不得跳步：**
+
+1. 在对话中声明：`> 🟢 [阶段 2] 提案已确认 — 状态更新为 IN_PROGRESS`
+2. Edit tasks.md 将状态改为 `IN_PROGRESS`
+3. 创建 Git 分支：`feature/<change-name>`（或 `refactor/`、`hotfix/` 视性质而定）
+
+**收到 [Y] 后必须立即更新状态，不得延迟到阶段 3 再写入。**
 
 若用户提出修改意见：
 1. 更新 `proposal.md` 和 `tasks.md`
-2. 重新展示修改后内容
-3. 再次等待确认
+2. 在对话中展示修改后的完整内容
+3. 再次输出确认提示，等待用户回复 [Y]
 
 若用户明确拒绝提案：
 1. 将状态改为 `REJECTED`
@@ -169,71 +337,149 @@ openspec/
 
 ---
 
-## 七、阶段 3 — 逐任务实施
+## 八、阶段 3 — 逐任务实施
 
-用户确认后，按以下规则执行：
+**开始实施前，读取 `openspec/config.yaml` 并将 `context` 和对应 `rules` 作为约束应用：**
+- 创建 / 修改 spec.md 或 proposal.md 时：应用 `rules.specs` + `context`
+- 创建 / 修改 design.md 时：应用 `rules.design` + `context`
+- 创建 / 修改 tasks.md 时：应用 `rules.tasks` + `context`
 
-1. 将 `tasks.md` 状态更新为 `IN_PROGRESS`
-2. 创建 Git 分支：`feature/<change-name>`（或 `refactor/`、`hotfix/` 视性质而定）
-3. 按任务顺序逐一实施，每完成一项：
-   - 将对应 `- [ ]` 改为 `- [x]`
-   - 简述完成情况
-4. 代码实现必须与 `specs/` 中的规范一致
-5. 发现超出提案范围的需求 → **立即停止**，先补充提案或创建新变更，不合并进当前范围
-6. 全部任务完成后，将状态更新为 `DONE`
+约束体现在 artifact 内容质量上，不得将 config.yaml 原文复制到任何 artifact 文件。
+
+**每个任务必须独立完成，严格按以下四步循环，禁止批量推进：**
+
+```
+① 在对话中声明：> ⏳ [任务 N/M] 开始：<任务描述>
+② 执行该任务的代码修改
+③ Edit tasks.md，将该任务 `- [ ]` 改为 `- [x]`（单独执行，不与其他任务合并）
+④ 在对话中声明：> ✅ [任务 N/M] 完成：<一句话说明做了什么>
+```
+
+**禁止一次性将多个任务标记为 `[x]`。**
+
+发现超出提案范围的需求 → **立即停止**，先补充提案或创建新变更，不合并进当前范围。
+
+全部任务完成后：
+1. Edit tasks.md 将状态改为 `DONE`
+2. 启动 Sub-agent 独立 Code Review（见第十一节），**禁止由主 agent 自行自检**
 
 **变更被中断时：** 若用户切换到新需求，当前变更保持 `IN_PROGRESS` 状态暂停；新需求走独立的 change-name 流程；回到此变更时从断点继续。
 
 ---
 
-## 八、阶段 4 — 自动归档
+## 九、阶段 4 — 归档
 
-所有任务状态为 `[x]` 后，**由用户确认验收标准已满足**，Claude 再执行：
+> **进入条件：** 所有任务为 `[x]` 且用户确认验收标准
 
-1. 将 `tasks.md` 状态改为 `ARCHIVED`
-2. 将 `openspec/changes/<change-name>/specs/` 内容合并写入 `openspec/specs/`：
+**禁止在用户确认前自动归档。** 必须先在对话中输出以下格式：
+
+```
+---
+所有任务已完成，请确认验收标准：
+
+- [ ] <验收条件 1>
+- [ ] <验收条件 2>
+...
+
+全部验收通过请回复 [Y] 开始归档。
+---
+```
+
+收到用户 [Y] 后，按顺序执行：
+
+1. 在对话中声明：`> 🔵 [阶段 4] 开始归档`
+2. Edit tasks.md 将状态改为 `ARCHIVED`
+3. 将 `openspec/changes/<change-name>/specs/` 内容合并写入 `openspec/specs/`：
    - 目标路径无同名文件 → 直接写入
    - 存在同名文件 → 展示冲突内容，由用户决定覆盖、追加或跳过
-3. 将整个 `openspec/changes/<change-name>/` 目录移至
-   `openspec/archive/<change-name>_<YYYYMMDD>/`
+4. 将整个 `openspec/changes/<change-name>/` 目录移至 `openspec/archive/YYYY-MM-DD-<change-name>/`（日期取当日，如 `2026-06-05-add-ride-filter`）
+5. 在对话中声明：`> ✅ 归档完成：openspec/archive/YYYY-MM-DD-<change-name>/`
 
 ---
 
-## 九、变更状态流转
+## 十、变更状态流转
 
 ```
-DRAFT → IN_REVIEW → IN_PROGRESS → DONE → ARCHIVED
-              ↘ REJECTED（用户拒绝提案，需修改后重新确认）
+DRAFT → IN_PROGRESS → DONE → ARCHIVED
+    ↘ REJECTED（用户拒绝提案，需修改后重新确认）
 ```
 
 | 状态 | 触发时机 |
 |------|---------|
 | DRAFT | 阶段 1 创建 tasks.md 时 |
-| IN_REVIEW | 阶段 2 用户确认提案时 |
-| IN_PROGRESS | 阶段 3 开始实施时 |
+| IN_PROGRESS | 阶段 2 收到用户 [Y] 后立即更新 |
 | DONE | 阶段 3 全部任务完成时 |
 | ARCHIVED | 阶段 4 归档完成时 |
 | REJECTED | 阶段 2 用户明确拒绝时 |
 
-状态写在 `tasks.md` 的 `## 状态：` 字段，Claude 在每个阶段切换时自动更新。
+---
+
+## 十一、Sub-agent 独立 Code Review（强制）
+
+实施完成后，**禁止主 agent 自行自检**，必须按以下步骤执行：
+
+### 步骤
+
+1. 运行 `git diff <base-branch>...HEAD` 获取完整变更 diff
+2. 读取 `proposal.md`、`tasks.md`、相关 `spec.md` 内容
+3. 使用 `Agent` tool 启动 sub-agent，传入以下 Prompt（**不得包含任何正面定性语句**，不得提及"已经实施者检查"）：
+
+**Prompt 模板：**
+
+```
+请对以下代码变更进行独立审查。
+
+## 变更规范
+[proposal.md 内容]
+[tasks.md 内容]
+[spec.md 内容，如有]
+
+## 实际代码变更（git diff）
+[git diff 输出]
+
+审查维度（三维验证）：
+
+**1. Completeness（完整性）**
+- tasks.md 中所有任务是否均为 `- [x]`？
+- spec.md 中每条需求是否在代码变更中有对应实现？
+- proposal.md In Scope 内的内容是否全部落地？
+
+**2. Correctness（正确性）**
+- 实现是否与 spec.md 每个 Scenario 的 WHEN/THEN 完全一致？
+- 是否存在逻辑错误、安全漏洞、性能问题？
+- 变更是否超出 proposal.md 定义的 In Scope 范围？
+
+**3. Coherence（一致性）**
+- 实现是否遵循 design.md 中的架构决策？
+- 是否与 openspec/config.yaml `context` 所描述的项目模式一致？
+- 是否有意外副作用或未预期的依赖变更？
+
+输出格式：
+- Findings: [每条含：文件位置、维度(completeness/correctness/coherence)、严重程度(critical/high/medium/low)、说明]
+- Dimension Scores:
+  Completeness: ✅/⚠️/❌
+  Correctness:  ✅/⚠️/❌
+  Coherence:    ✅/⚠️/❌
+- Acceptance criteria:
+  ✅/❌ <验收条件 1>
+  ✅/❌ <验收条件 2>
+- Verdict: PASS / FAIL（任一维度 ❌ 即为 FAIL）
+
+**语言要求：你的所有输出必须使用简体中文。**
+```
+
+### 处理结果
+
+| Verdict | 操作 |
+|---------|------|
+| `PASS`（无 critical/high 问题） | 在对话中完整展示 sub-agent 报告，进入阶段 4 |
+| `FAIL` | 必须修复所有 critical/high 问题后，重新启动 sub-agent，循环直到 `PASS` |
+
+> medium/low 问题记录在对话中，由用户决定是否修复，不阻塞归档。
 
 ---
 
-## 十、代码审查前自检
-
-实施完成、准备提 PR 前，对照 `tasks.md` 自动检查：
-
-```
-- [ ] 所有任务已完成（tasks.md 全部 [x]）
-- [ ] 代码实现与 specs/ 中规范一致
-- [ ] 变更未超出 proposal.md 定义的范围
-- [ ] 无意外副作用或未预期的依赖变更
-- [ ] 验收标准全部满足（用户已确认）
-```
-
----
-
-## 十一、Git 集成规范
+## 十二、Git 集成规范
 
 ### 分支命名
 ```
@@ -242,11 +488,17 @@ refactor/<change-name>
 hotfix/<change-name>
 ```
 
-> 分支在**阶段 3 开始时**创建，不早于用户确认提案。
+> 分支在**阶段 2 结束时**创建，不早于用户回复 [Y] 确认提案。
 
 ### Commit 格式
+
+根据变更性质选择前缀：
+
 ```
-feat(<change-name>): <简短描述>
+feat(<change-name>): <简短描述>      # 新功能、新模块
+fix(<change-name>): <简短描述>       # Bug 修复
+refactor(<change-name>): <简短描述>  # 重构、架构调整
+chore(<change-name>): <简短描述>     # 配置、工具、文档
 
 - 具体实现内容 1
 - 具体实现内容 2
@@ -256,16 +508,15 @@ Refs: openspec/changes/<change-name>
 
 ---
 
-## 十二、强制约束（不可绕过）
+## 十三、强制约束（不可绕过）
 
-| 场景 | 必须执行 |
-|------|---------|
-| 任何阶段开始前 | 检查并确保 openspec/project.md 存在 |
-| 触发条件满足 | 先创建提案文件，再写业务代码 |
-| 需求存在歧义 | 阶段 0 提问，等用户回复后再起草提案 |
-| 实施前 | 展示提案摘要，等待用户明确确认 |
-| 实施开始时 | 状态改为 IN_REVIEW → IN_PROGRESS，创建 Git 分支 |
-| 实施中 | 每完成一项任务立即更新 tasks.md |
-| 需求超出范围 | 停止实施，扩展提案或新建变更 |
-| 归档前 | 用户确认验收标准满足，处理 specs/ 冲突后再归档 |
-| 任务全部完成 | 自动执行归档，更新 openspec/specs/ |
+| 场景 | 必须执行 | 违反后果 |
+|------|---------|---------|
+| 阶段 1 文件创建后 | 在对话中展示文件**完整原文**（代码块），不得用摘要替代 | 视为阶段 1 未完成，不得进入阶段 2 |
+| 阶段 1 结束 | 用户回复 [Y] 前禁止任何业务代码/文件修改 | 视为跳过审查，需告知用户并回滚至阶段 1 |
+| 阶段 2 状态流转 | 用户回复 [Y] 后直接 DRAFT → IN_PROGRESS，不得延迟写入 | 视为流程违规，需补充执行缺失步骤 |
+| 阶段 3 每个任务 | 单独 Edit tasks.md 更新对应 `[x]` + 对话声明，不得批量 | 视为任务状态不可信，需逐条核对并补充更新 |
+| 阶段 4 归档前 | 展示验收标准清单，等待用户回复 [Y] | 不得自动归档 |
+| 用户指出步骤遗漏 | **立即停止当前操作**，回到遗漏的步骤重新执行，不得"下次注意" | 当前遗漏步骤视为未执行 |
+| 任何阶段开始前 | 检查并确保 openspec/project.md 存在；检查并读取 openspec/config.yaml | 不存在则先创建 project.md；config.yaml 缺失则提示运行 /opsx:init |
+| 任何 artifact 创建前 | 从 config.yaml 读取 context 和对应 rules，作为生成约束应用 | artifact 内容缺乏项目特定约束，质量下降 |

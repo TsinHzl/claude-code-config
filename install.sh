@@ -4,6 +4,7 @@ set -e
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 RULES_DIR="$CLAUDE_DIR/rules"
+SKILLS_DIR="$CLAUDE_DIR/skills"
 FORCE=false
 
 # Parse flags
@@ -17,6 +18,7 @@ echo "Installing claude-code-config..."
 
 # Ensure ~/.claude/rules/ exists
 mkdir -p "$RULES_DIR"
+mkdir -p "$SKILLS_DIR"
 
 # Backup existing CLAUDE.md
 if [ -f "$CLAUDE_DIR/CLAUDE.md" ]; then
@@ -49,7 +51,23 @@ for rule in "$REPO_DIR/rules/"*.md; do
   fi
 done
 
+# Install skills
+SKILL_INSTALLED=0
+SKILL_SKIPPED=0
+for skill in "$REPO_DIR/skills/"*; do
+  filename="$(basename "$skill")"
+  dest="$SKILLS_DIR/$filename"
+  if [ ! -e "$dest" ] || [ "$FORCE" = true ]; then
+    cp -R "$skill" "$dest"
+    echo "  Installed skills/$filename"
+    SKILL_INSTALLED=$((SKILL_INSTALLED + 1))
+  else
+    echo "  Skipped skills/$filename (already exists)"
+    SKILL_SKIPPED=$((SKILL_SKIPPED + 1))
+  fi
+done
+
 echo ""
-echo "Done. $INSTALLED rule(s) installed, $SKIPPED skipped."
+echo "Done. $INSTALLED rule(s) installed, $SKIPPED skipped. $SKILL_INSTALLED skill(s) installed, $SKILL_SKIPPED skipped."
 echo ""
 echo "Next step: edit ~/.claude/CLAUDE.md and fill in your Developer Profile."
