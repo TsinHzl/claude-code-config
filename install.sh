@@ -57,10 +57,16 @@ if [ -f "$SETTINGS_SRC" ]; then
   fi
   sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
   sed -i '' "s|$HOME/.claude/statusline-command.sh|$HOOK_CMD|g" "$SETTINGS_DEST"
+  # Safety net: replace any leftover iTerm2 cc-status paths on machines without it
+  if [ ! -f "$ITERM_CC" ]; then
+    sed -i '' "s|$ITERM_CC|$HOOK_CMD|g" "$SETTINGS_DEST"
+  fi
   # statusLine.command always uses local statusline-command.sh
   sed -i '' "s|__STATUSLINE_CMD__|$CLAUDE_DIR/statusline-command.sh|g" "$SETTINGS_DEST"
   echo "  Hook command:       $HOOK_CMD"
   echo "  StatusLine command: $CLAUDE_DIR/statusline-command.sh"
+  echo "  Verification — unique hook commands written:"
+  grep '"command"' "$SETTINGS_DEST" | grep -v '"node"\|"jq -r\|bash\|wc -l\|echo\|printf' | sort -u | sed 's/^[[:space:]]*/    /'
 fi
 
 # ──────────────────────────────────────────────
