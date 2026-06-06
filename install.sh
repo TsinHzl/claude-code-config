@@ -38,22 +38,40 @@ if [ -f "$SETTINGS_SRC" ]; then
   fi
 
   # Repair iTerm2 integration symlinks when iTerm2 is installed
-  ITERM_CC="/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
+  ITERM_CC=""
+  for candidate in \
+    "/Applications/iTerm.app/Contents/Resources/utilities/cc-status" \
+    "/Applications/iTerm2.app/Contents/Resources/utilities/cc-status" \
+    "$HOME/Applications/iTerm.app/Contents/Resources/utilities/cc-status" \
+    "$HOME/Applications/iTerm2.app/Contents/Resources/utilities/cc-status"; do
+    if [ -f "$candidate" ]; then
+      ITERM_CC="$candidate"
+      break
+    fi
+  done
+
   ITERM_CONFIG_DIR="$HOME/.config/iterm2"
   ITERM_APPSUPPORT="$HOME/Library/Application Support/iTerm2"
 
-  if [ -f "$ITERM_CC" ]; then
+  if [ -n "$ITERM_CC" ]; then
+    echo "  iTerm2 detected: $ITERM_CC"
     mkdir -p "$ITERM_CONFIG_DIR"
 
     if [ ! -L "$ITERM_CONFIG_DIR/cc-status" ] || [ ! -e "$ITERM_CONFIG_DIR/cc-status" ]; then
       ln -sf "$ITERM_CC" "$ITERM_CONFIG_DIR/cc-status"
       echo "  Fixed symlink: $ITERM_CONFIG_DIR/cc-status → $ITERM_CC"
+    else
+      echo "  Symlink OK:    $ITERM_CONFIG_DIR/cc-status"
     fi
 
     if [ ! -L "$ITERM_CONFIG_DIR/AppSupport" ] || [ ! -e "$ITERM_CONFIG_DIR/AppSupport" ]; then
       ln -sf "$ITERM_APPSUPPORT" "$ITERM_CONFIG_DIR/AppSupport"
       echo "  Fixed symlink: $ITERM_CONFIG_DIR/AppSupport → $ITERM_APPSUPPORT"
+    else
+      echo "  Symlink OK:    $ITERM_CONFIG_DIR/AppSupport"
     fi
+  else
+    echo "  iTerm2 not detected — skipping ~/.config/iterm2 symlinks"
   fi
 
   sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
