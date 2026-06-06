@@ -70,7 +70,8 @@ if [ -f "$SETTINGS_SRC" ]; then
     else
       echo "  Symlink OK:    $ITERM_CONFIG_DIR/AppSupport"
     fi
-  elif ls /Applications/iTerm*.app "$HOME/Applications/iTerm*.app" &>/dev/null 2>&1; then
+  elif [ -d "/Applications/iTerm.app" ] || [ -d "/Applications/iTerm2.app" ] || \
+       [ -d "$HOME/Applications/iTerm.app" ] || [ -d "$HOME/Applications/iTerm2.app" ]; then
     # iTerm2 installed but cc-status binary missing — use portable script as fallback
     echo "  iTerm2 detected (no cc-status binary) — using statusline-command.sh as fallback"
     mkdir -p "$ITERM_CONFIG_DIR"
