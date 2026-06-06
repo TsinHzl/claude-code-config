@@ -18,11 +18,6 @@ mkdir -p "$CLAUDE_DIR"
 # ──────────────────────────────────────────────
 # 1. CLAUDE.md
 # ──────────────────────────────────────────────
-if [ -f "$CLAUDE_DIR/CLAUDE.md" ]; then
-  BACKUP="$CLAUDE_DIR/CLAUDE.backup.$(date +%Y%m%d_%H%M%S).md"
-  cp "$CLAUDE_DIR/CLAUDE.md" "$BACKUP"
-  echo "  Backed up existing CLAUDE.md → $BACKUP"
-fi
 cp "$REPO_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
 echo "  Installed CLAUDE.md"
 
@@ -33,12 +28,6 @@ SETTINGS_SRC="$REPO_DIR/settings.json"
 SETTINGS_DEST="$CLAUDE_DIR/settings.json"
 
 if [ -f "$SETTINGS_SRC" ]; then
-  if [ -f "$SETTINGS_DEST" ]; then
-    BACKUP="$CLAUDE_DIR/settings.backup.$(date +%Y%m%d_%H%M%S).json"
-    cp "$SETTINGS_DEST" "$BACKUP"
-    echo "  Backed up existing settings.json → $BACKUP"
-  fi
-
   cp "$SETTINGS_SRC" "$SETTINGS_DEST"
   echo "  Installed settings.json"
 
