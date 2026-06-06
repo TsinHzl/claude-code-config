@@ -50,15 +50,41 @@ if [ -f "$SETTINGS_SRC" ]; then
 
   # Resolve __HOME__ placeholder and pick hook command
   ITERM_CC="/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
+  ITERM_CONFIG_DIR="$HOME/.config/iterm2"
+  ITERM_CONFIG_CC="$ITERM_CONFIG_DIR/cc-status"
+  ITERM_APPSUPPORT="$HOME/Library/Application Support/iTerm2"
+
+  # Determine if iTerm2 integration is fully functional
+  USE_ITERM=0
   if [ -f "$ITERM_CC" ]; then
+    # Ensure ~/.config/iterm2 directory exists
+    mkdir -p "$ITERM_CONFIG_DIR"
+
+    # Fix broken/missing cc-status symlink
+    if [ ! -L "$ITERM_CONFIG_CC" ] || [ ! -e "$ITERM_CONFIG_CC" ]; then
+      ln -sf "$ITERM_CC" "$ITERM_CONFIG_CC"
+      echo "  Fixed symlink: $ITERM_CONFIG_CC → $ITERM_CC"
+    fi
+
+    # Fix broken/missing AppSupport symlink (uses current $HOME, not hardcoded)
+    if [ ! -L "$ITERM_CONFIG_DIR/AppSupport" ] || [ ! -e "$ITERM_CONFIG_DIR/AppSupport" ]; then
+      ln -sf "$ITERM_APPSUPPORT" "$ITERM_CONFIG_DIR/AppSupport"
+      echo "  Fixed symlink: $ITERM_CONFIG_DIR/AppSupport → $ITERM_APPSUPPORT"
+    fi
+
+    USE_ITERM=1
+  fi
+
+  if [ "$USE_ITERM" = "1" ]; then
     HOOK_CMD="$ITERM_CC"
   else
     HOOK_CMD="$CLAUDE_DIR/statusline-command.sh"
   fi
+
   sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
   sed -i '' "s|$HOME/.claude/statusline-command.sh|$HOOK_CMD|g" "$SETTINGS_DEST"
-  # Safety net: replace any leftover iTerm2 cc-status paths on machines without it
-  if [ ! -f "$ITERM_CC" ]; then
+  # Safety net: replace any leftover iTerm2 cc-status paths when iTerm2 not available
+  if [ "$USE_ITERM" = "0" ]; then
     sed -i '' "s|$ITERM_CC|$HOOK_CMD|g" "$SETTINGS_DEST"
   fi
   # statusLine.command always uses local statusline-command.sh
