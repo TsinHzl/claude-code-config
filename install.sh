@@ -5,6 +5,7 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 RULES_DIR="$CLAUDE_DIR/rules"
 SKILLS_DIR="$CLAUDE_DIR/skills"
+COMMANDS_DIR="$CLAUDE_DIR/commands"
 FORCE=false
 
 # Parse flags
@@ -19,6 +20,7 @@ echo "Installing claude-code-config..."
 # Ensure target directories exist
 mkdir -p "$RULES_DIR"
 mkdir -p "$SKILLS_DIR"
+mkdir -p "$COMMANDS_DIR"
 mkdir -p "$CLAUDE_DIR"
 
 # ──────────────────────────────────────────────
@@ -97,7 +99,26 @@ for skill in "$REPO_DIR/skills/"*; do
 done
 
 # ──────────────────────────────────────────────
-# 5. Scripts (hooks / statusline)
+# 5. Commands
+# ──────────────────────────────────────────────
+CMD_INSTALLED=0
+CMD_SKIPPED=0
+for cmd in "$REPO_DIR/commands/"*.md; do
+  [ -f "$cmd" ] || continue
+  filename="$(basename "$cmd")"
+  dest="$COMMANDS_DIR/$filename"
+  if [ ! -f "$dest" ] || [ "$FORCE" = true ]; then
+    cp "$cmd" "$dest"
+    echo "  Installed commands/$filename"
+    CMD_INSTALLED=$((CMD_INSTALLED + 1))
+  else
+    echo "  Skipped commands/$filename (already exists)"
+    CMD_SKIPPED=$((CMD_SKIPPED + 1))
+  fi
+done
+
+# ──────────────────────────────────────────────
+# 6. Scripts (hooks / statusline)
 # ──────────────────────────────────────────────
 SCRIPT_INSTALLED=0
 SCRIPT_SKIPPED=0
@@ -125,4 +146,5 @@ fi
 echo ""
 echo "Done. $RULE_INSTALLED rule(s) installed, $RULE_SKIPPED skipped."
 echo "      $SKILL_INSTALLED skill(s) installed, $SKILL_SKIPPED skipped."
+echo "      $CMD_INSTALLED command(s) installed, $CMD_SKIPPED skipped."
 echo "      $SCRIPT_INSTALLED script(s) installed, $SCRIPT_SKIPPED skipped."
