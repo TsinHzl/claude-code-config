@@ -61,6 +61,18 @@ if [ -f "$SETTINGS_SRC" ]; then
       sed -i '' "s|/Users/MacBook|$HOME|g" "$SETTINGS_DEST"
       echo "  Adjusted home directory paths in settings.json"
     fi
+
+    # Resolve __HOME__ placeholder and pick statusline command
+    ITERM_CC="/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
+    if [ -f "$ITERM_CC" ]; then
+      STATUSLINE_CMD="$ITERM_CC"
+    else
+      STATUSLINE_CMD="$CLAUDE_DIR/statusline-command.sh"
+    fi
+    sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
+    # Replace the now-expanded placeholder path with the resolved command
+    sed -i '' "s|$HOME/.claude/statusline-command.sh|$STATUSLINE_CMD|g" "$SETTINGS_DEST"
+    echo "  Statusline command: $STATUSLINE_CMD"
   else
     echo "  Skipped settings.json (already exists, use --force to overwrite)"
   fi
