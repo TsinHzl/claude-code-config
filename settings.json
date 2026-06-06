@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -46,7 +46,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -65,7 +65,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -75,7 +75,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -85,7 +85,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -95,7 +95,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -105,7 +105,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }
@@ -115,7 +115,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/MacBook/.config/iterm2/cc-status"
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
           }
         ]
       }

@@ -55,11 +55,16 @@ if [ -f "$SETTINGS_SRC" ]; then
   if [ ! -f "$SETTINGS_DEST" ] || [ "$FORCE" = true ]; then
     cp "$SETTINGS_SRC" "$SETTINGS_DEST"
     echo "  Installed settings.json"
+
+    # Replace hardcoded home directory paths with current user's $HOME
+    if [[ "$HOME" != "/Users/MacBook" ]]; then
+      sed -i '' "s|/Users/MacBook|$HOME|g" "$SETTINGS_DEST"
+      echo "  Adjusted home directory paths in settings.json"
+    fi
   else
     echo "  Skipped settings.json (already exists, use --force to overwrite)"
   fi
 fi
-
 # ──────────────────────────────────────────────
 # 3. Rules
 # ──────────────────────────────────────────────
@@ -89,6 +94,7 @@ for skill in "$REPO_DIR/skills/"*; do
   filename="$(basename "$skill")"
   dest="$SKILLS_DIR/$filename"
   if [ ! -e "$dest" ] || [ "$FORCE" = true ]; then
+    rm -rf "$dest" 2>/dev/null
     cp -R "$skill" "$dest"
     echo "  Installed skills/$filename"
     SKILL_INSTALLED=$((SKILL_INSTALLED + 1))
