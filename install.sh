@@ -62,17 +62,20 @@ if [ -f "$SETTINGS_SRC" ]; then
       echo "  Adjusted home directory paths in settings.json"
     fi
 
-    # Resolve __HOME__ placeholder and pick statusline command
+    # Resolve __HOME__ placeholder and pick statusline hook command (for hooks only)
     ITERM_CC="/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
     if [ -f "$ITERM_CC" ]; then
-      STATUSLINE_CMD="$ITERM_CC"
+      HOOK_CMD="$ITERM_CC"
     else
-      STATUSLINE_CMD="$CLAUDE_DIR/statusline-command.sh"
+      HOOK_CMD="$CLAUDE_DIR/statusline-command.sh"
     fi
     sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
-    # Replace the now-expanded placeholder path with the resolved command
-    sed -i '' "s|$HOME/.claude/statusline-command.sh|$STATUSLINE_CMD|g" "$SETTINGS_DEST"
-    echo "  Statusline command: $STATUSLINE_CMD"
+    # __HOME__ expansion turns hook placeholders into $HOME/.claude/statusline-command.sh — replace with resolved hook command
+    sed -i '' "s|$HOME/.claude/statusline-command.sh|$HOOK_CMD|g" "$SETTINGS_DEST"
+    # statusLine.command always uses the local statusline-command.sh (never iTerm2)
+    sed -i '' "s|__STATUSLINE_CMD__|$CLAUDE_DIR/statusline-command.sh|g" "$SETTINGS_DEST"
+    echo "  Hook command:       $HOOK_CMD"
+    echo "  StatusLine command: $CLAUDE_DIR/statusline-command.sh"
   else
     echo "  Skipped settings.json (already exists, use --force to overwrite)"
   fi
