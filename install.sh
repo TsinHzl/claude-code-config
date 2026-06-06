@@ -48,48 +48,30 @@ if [ -f "$SETTINGS_SRC" ]; then
     echo "  Adjusted home directory paths in settings.json"
   fi
 
-  # Resolve __HOME__ placeholder and pick hook command
+  # Repair iTerm2 integration symlinks when iTerm2 is installed
   ITERM_CC="/Applications/iTerm.app/Contents/Resources/utilities/cc-status"
   ITERM_CONFIG_DIR="$HOME/.config/iterm2"
-  ITERM_CONFIG_CC="$ITERM_CONFIG_DIR/cc-status"
   ITERM_APPSUPPORT="$HOME/Library/Application Support/iTerm2"
 
-  # Determine if iTerm2 integration is fully functional
-  USE_ITERM=0
   if [ -f "$ITERM_CC" ]; then
-    # Ensure ~/.config/iterm2 directory exists
     mkdir -p "$ITERM_CONFIG_DIR"
 
-    # Fix broken/missing cc-status symlink
-    if [ ! -L "$ITERM_CONFIG_CC" ] || [ ! -e "$ITERM_CONFIG_CC" ]; then
-      ln -sf "$ITERM_CC" "$ITERM_CONFIG_CC"
-      echo "  Fixed symlink: $ITERM_CONFIG_CC → $ITERM_CC"
+    if [ ! -L "$ITERM_CONFIG_DIR/cc-status" ] || [ ! -e "$ITERM_CONFIG_DIR/cc-status" ]; then
+      ln -sf "$ITERM_CC" "$ITERM_CONFIG_DIR/cc-status"
+      echo "  Fixed symlink: $ITERM_CONFIG_DIR/cc-status → $ITERM_CC"
     fi
 
-    # Fix broken/missing AppSupport symlink (uses current $HOME, not hardcoded)
     if [ ! -L "$ITERM_CONFIG_DIR/AppSupport" ] || [ ! -e "$ITERM_CONFIG_DIR/AppSupport" ]; then
       ln -sf "$ITERM_APPSUPPORT" "$ITERM_CONFIG_DIR/AppSupport"
       echo "  Fixed symlink: $ITERM_CONFIG_DIR/AppSupport → $ITERM_APPSUPPORT"
     fi
-
-    USE_ITERM=1
-  fi
-
-  if [ "$USE_ITERM" = "1" ]; then
-    HOOK_CMD="$ITERM_CC"
-  else
-    HOOK_CMD="$CLAUDE_DIR/statusline-command.sh"
   fi
 
   sed -i '' "s|__HOME__|$HOME|g" "$SETTINGS_DEST"
-  sed -i '' "s|$HOME/.claude/statusline-command.sh|$HOOK_CMD|g" "$SETTINGS_DEST"
-  # Safety net: replace any leftover iTerm2 cc-status paths when iTerm2 not available
-  if [ "$USE_ITERM" = "0" ]; then
-    sed -i '' "s|$ITERM_CC|$HOOK_CMD|g" "$SETTINGS_DEST"
-  fi
-  # statusLine.command always uses local statusline-command.sh
+  # Hooks always use portable statusline-command.sh — never iTerm2 binary path directly
+  # statusLine.command also uses local statusline-command.sh
   sed -i '' "s|__STATUSLINE_CMD__|$CLAUDE_DIR/statusline-command.sh|g" "$SETTINGS_DEST"
-  echo "  Hook command:       $HOOK_CMD"
+  echo "  Hook command:       $CLAUDE_DIR/statusline-command.sh"
   echo "  StatusLine command: $CLAUDE_DIR/statusline-command.sh"
   echo "  Verification — unique hook commands written:"
   grep '"command"' "$SETTINGS_DEST" | grep -v '"node"\|"jq -r\|bash\|wc -l\|echo\|printf' | sort -u | sed 's/^[[:space:]]*/    /'
