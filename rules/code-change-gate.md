@@ -4,12 +4,10 @@ description: Mandatory confirmation gate before any file mutation, plus post-cha
 inclusion: always
 ---
 
-ALL file mutations require explicit user confirmation before execution:
+ALL file mutations require explicit user confirmation before execution. Use `AskUserQuestion` tool with up/down arrow selection to present confirmation prompts — never plain-text prompts like "回复 Y 执行".
 
 - **Multi-file / complex changes**: numbered plan → wait for confirmation → full diff → wait for confirmation → execute
 - **Single-file / simple changes**: full diff → wait for confirmation → execute
-
-Accepted confirmations: "ok", "yes", "go", "confirmed", "proceed", "do it", "好的", "确认", "可以", "执行", or equivalent affirmative in any language.
 
 Never infer consent from silence or context. Never call Write, Edit, or any file-mutation tool without explicit confirmation.
 
