@@ -1,0 +1,9 @@
+{
+  "id": "38",
+  "subject": "阶段 4 修复执行 + 第 2 轮 CR + 归档收尾",
+  "description": "用户勾选修复 H1（feature-loop.js CR 提取正则）、H2（ipc-server.js socket 权限收紧）、#9（空改动补 setFeatureStatus/auditLog）。已完成：3 处 Edit + node --check 通过 + 部署 md5 一致 + dsh 重启。剩余：cr-known-issues 更新 → 第 2 轮 CR（增量 diff /tmp/cr_round2_fix_only.diff，单分片）→ 验收确认 → tasks-gate.sh → delta 合并归档 → TaskUpdate #37 completed。",
+  "activeForm": "执行 3 处修复并推进部署/CR/归档",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

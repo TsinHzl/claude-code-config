@@ -1,0 +1,9 @@
+{
+  "id": "13",
+  "subject": "T1 收尾：完成声明 + 00-change-gate CR 处理",
+  "description": "T1 插件骨架已完成并验证，按 00-change-gate 处理 CR：净变更约 60 行（<20 行代码逻辑 + 文档），展示豁免检查或极小变更 AskUserQuestion 询问",
+  "activeForm": "正在执行 T1 收尾 CR",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

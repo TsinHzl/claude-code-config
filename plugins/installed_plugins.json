@@ -1,0 +1,338 @@
+{
+  "version": 2,
+  "plugins": {
+    "document-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/anthropic-agent-skills/document-skills/b29e7cf65e5c",
+        "version": "b29e7cf65e5c",
+        "installedAt": "2026-04-06T00:20:43.223Z",
+        "lastUpdated": "2026-07-25T04:05:02.037Z",
+        "gitCommitSha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/anthropic-agent-skills/document-skills/b29e7cf65e5c",
+        "version": "b29e7cf65e5c",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/superpowers/6.2.0",
+        "version": "6.2.0",
+        "installedAt": "2026-04-06T00:16:42.961Z",
+        "lastUpdated": "2026-07-24T16:55:22.292Z",
+        "gitCommitSha": "b7a8f76985f1e93e75dd2f2a3b424dc731bd9d37"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/superpowers/6.2.0",
+        "version": "6.2.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "b7a8f76985f1e93e75dd2f2a3b424dc731bd9d37",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/code-review/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:16:54.864Z",
+        "lastUpdated": "2026-08-07T02:12:43.874Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/code-review/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "context7@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/context7/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:17:02.938Z",
+        "lastUpdated": "2026-08-07T02:12:43.875Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/context7/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/frontend-design/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:17:08.880Z",
+        "lastUpdated": "2026-08-07T02:12:43.875Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/frontend-design/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-06T00:17:15.508Z",
+        "lastUpdated": "2026-04-06T00:17:15.508Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/skill-creator/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:17:24.605Z",
+        "lastUpdated": "2026-08-07T02:12:43.876Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/skill-creator/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/github/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:17:31.212Z",
+        "lastUpdated": "2026-08-07T02:12:43.876Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/github/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/playwright/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:17:37.625Z",
+        "lastUpdated": "2026-08-07T02:12:43.877Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/playwright/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-06T00:17:57.988Z",
+        "lastUpdated": "2026-04-06T00:17:57.988Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-06T00:18:05.756Z",
+        "lastUpdated": "2026-04-06T00:18:05.756Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-04-06T00:18:21.335Z",
+        "lastUpdated": "2026-08-07T02:12:43.878Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/99dc284733df",
+        "version": "99dc284733df",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "99dc284733dfbe91e778c123b091a4c0811d2ed2",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/figma/2.2.91",
+        "version": "2.2.91",
+        "installedAt": "2026-04-06T00:18:31.704Z",
+        "lastUpdated": "2026-08-07T03:16:01.543Z",
+        "gitCommitSha": "500e8738438ed1204eaf23e61280d872f47534fd"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/figma/2.2.91",
+        "version": "2.2.91",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "500e8738438ed1204eaf23e61280d872f47534fd",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "swift-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-06T00:19:15.231Z",
+        "lastUpdated": "2026-04-06T00:19:15.231Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "example-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/anthropic-agent-skills/example-skills/b29e7cf65e5c",
+        "version": "b29e7cf65e5c",
+        "installedAt": "2026-04-06T00:21:00.630Z",
+        "lastUpdated": "2026-07-25T04:05:02.038Z",
+        "gitCommitSha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/anthropic-agent-skills/example-skills/b29e7cf65e5c",
+        "version": "b29e7cf65e5c",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "clangd-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-16T13:35:57.875Z",
+        "lastUpdated": "2026-04-16T13:35:57.875Z",
+        "gitCommitSha": "48aa43517886014e90ee80a6461f9de75045369d"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "48aa43517886014e90ee80a6461f9de75045369d",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "rust-analyzer-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-05-16T02:55:47.487Z",
+        "lastUpdated": "2026-05-16T02:55:47.487Z",
+        "gitCommitSha": "5dbfa0fade3058791bf8134b2bd441cb9d5f9a10"
+      },
+      {
+        "scope": "project",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-08-26T08:54:00.376Z",
+        "lastUpdated": "2026-08-26T08:54:00.376Z",
+        "gitCommitSha": "5dbfa0fade3058791bf8134b2bd441cb9d5f9a10",
+        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
+      }
+    ],
+    "claude-mem@thedotmack": [
+      {
+        "scope": "user",
+        "installPath": "/Users/MacBook/.claude/plugins/cache/thedotmack/claude-mem/13.8.0",
+        "version": "13.8.0",
+        "installedAt": "2026-06-23T06:15:28.567Z",
+        "lastUpdated": "2026-06-23T06:15:28.567Z",
+        "gitCommitSha": "87e4836a86909bbfd056777a37546db443f90868"
+      }
+    ]
+  }
+}

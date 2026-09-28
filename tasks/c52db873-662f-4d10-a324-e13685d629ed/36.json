@@ -1,0 +1,9 @@
+{
+  "id": "36",
+  "subject": "T8 增量 CR：code-reviewer 审查 fetchDesignDsl + feature-loop step 3",
+  "description": "T8 MasterGo 方案 A 实施后的强制门控 CR（SHARDS=1，code-reviewer，run_in_background:false）。CR 已返回 PASS：0 🚫 / 5 ⚠️ / 2 💡。待用户勾选修复条目。",
+  "activeForm": "记录 T8 增量 CR 审查结果",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

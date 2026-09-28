@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "阶段1：需求分析",
+  "description": "收集 DDP/PRD/设计稿，LLM 处理，需求澄清，生成 prd-spec",
+  "activeForm": "需求分析",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

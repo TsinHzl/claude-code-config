@@ -1,0 +1,9 @@
+{
+  "id": "19",
+  "subject": "T2c codegen loop 驱动",
+  "description": "tasks.md 原文：feature 队列串行执行、三层验证门禁对接（pre/post-codegen-check.sh）、Layer 2.5 测试用例验证子环节对接（独立计数器 test-verify-loop-guard.sh 上限 3 次）、Layer 3 需求维度 CR 触发（独立 sub-agent 角色隔离）、需求查漏补缺 sub-agent 触发。验证：dry-run 单 feature 走完 codegen → feature-done，门禁脚本真实执行，Layer 2.5 与 Layer 3 均有触发记录。",
+  "activeForm": "实施 T2c codegen loop 驱动",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "20",
+  "subject": "T2c High 修复：4 条 High + CR 轮次判定",
+  "description": "修复 T2c 增量 CR 的 4 条 High（feature-loop.js SCOPE_EMPTY 误判、cr-report 缺失判 clean、engine.js handoff 双重失真、harness.js stderr 污染 prompt），修复后按 00-change-gate 评估是否升第 2 轮 CR，并补齐 T2b/T2c 完成声明欠账。",
+  "activeForm": "修复 CR High 问题",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

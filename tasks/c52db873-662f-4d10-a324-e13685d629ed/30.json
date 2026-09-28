@@ -1,0 +1,9 @@
+{
+  "id": "30",
+  "subject": "T7：端到端验证 + token 口径 + skill 层等价",
+  "description": "完整走通一次单 feature 流程；token 口径适配（dsh 会话 usage → cal-req-token-cost.sh 链路，无 usage 字段则「不聚合」降级并在设置面板说明）；skill 层四项能力等价核验（flow_profile 四跳过位 / 多平台分组 codegen / collab 分叉 / knowledge 飞轮注入）；须先修 feature-loop.js:405 state.features || {} → completed_features 数组；含真实 dsh web 会话核验（输入框键入 / 可见 gd 命令）。",
+  "activeForm": "T7 端到端验证进行中",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "subject": "深入分析日志与代码，定位标签泄露与自动停止的根因",
+  "description": "详细分析日志时间线、Claude Code 压缩机制、prefill 丢弃、thinking 标签处理、stop_reason 与 stream 处理逻辑，定位根因",
+  "activeForm": "正在深入分析根因",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "开始执行根因分析"
+  }
+}

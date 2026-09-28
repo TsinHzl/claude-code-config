@@ -1,0 +1,9 @@
+{
+  "id": "10",
+  "subject": "调整 V4 倒计时展示位置",
+  "description": "移除 V4 卡片顶部倒计时动画，并将倒计时状态与展示迁移到 V4 接单按钮，保持非 V4 行为不变。",
+  "activeForm": "调整 V4 倒计时展示位置",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

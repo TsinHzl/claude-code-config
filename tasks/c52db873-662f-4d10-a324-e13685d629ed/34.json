@@ -1,0 +1,9 @@
+{
+  "id": "34",
+  "subject": "T6 CR 发现处理：摘要展示 + AskUserQuestion 勾选修复",
+  "description": "T6 sub-agent CR（PASS）完成，7 条发现：3 Medium（settings-service patch 值类型未校验 / GD_DICT.en 死代码 i18n 未接线 / toggleBridge 并发竞态）+ 4 Low（aria-pressed 缺失 / var hoisting 依赖 / GdSettingsSection 62 行超阈值 / dirname 语义）。需 AskUserQuestion 让用户勾选修复条目，未选中 Critical/High（本轮无）不涉及持久化。",
+  "activeForm": "处理 T6 CR 发现条目",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

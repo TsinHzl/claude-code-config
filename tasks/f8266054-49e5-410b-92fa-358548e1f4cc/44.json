@@ -1,0 +1,9 @@
+{
+  "id": "44",
+  "subject": "定位播单卡片蒙层实现",
+  "description": "查找蒙层颜色、透明度、层级及接单中按钮的渲染路径，确认截图标注对应代码。",
+  "activeForm": "定位播单卡片蒙层实现",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

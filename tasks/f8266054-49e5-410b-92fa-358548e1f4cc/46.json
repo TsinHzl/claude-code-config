@@ -1,0 +1,9 @@
+{
+  "id": "46",
+  "subject": "验证 V4 蒙层与按钮行为",
+  "description": "运行格式检查和针对性 analyze，确认 V4 Matching、Flex Matching、非 V4 路径无语法或类型回归，并完成增量代码审查。",
+  "activeForm": "验证 V4 蒙层与按钮行为",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

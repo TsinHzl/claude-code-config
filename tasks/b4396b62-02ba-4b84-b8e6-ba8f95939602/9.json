@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "subject": "修复 V4 卡片布局样式",
+  "description": "修复 V4 卡片宽度约束、价值点单行布局和底部按钮顺序，保持服务端字段驱动与非 V4 行为不变。",
+  "activeForm": "修复 V4 卡片布局样式",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

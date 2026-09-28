@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "构建验证 admin-ui",
+  "description": "在 PR 分支运行 admin-ui 的 tsc -b && vite build，验证 TS 类型与构建通过",
+  "activeForm": "构建验证 admin-ui",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

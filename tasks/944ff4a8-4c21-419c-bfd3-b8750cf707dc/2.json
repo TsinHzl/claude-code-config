@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "勘察 Codex 适配实现入口",
+  "description": "读取现有安装、运行时、Hook、Dashboard 和测试脚本，给出首批可落地文件与验证命令，不修改代码。",
+  "activeForm": "勘察 Codex 适配实现入口",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

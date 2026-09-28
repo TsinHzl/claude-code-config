@@ -1,0 +1,12 @@
+{
+  "id": "1",
+  "subject": "数据层恢复技术需求透传并注入 is_technical 属性",
+  "description": "修改 transform-ddp.py 与 dashboard-server.py，恢复技术需求进入看板数据源，在需求对象上透传 is_technical: true 属性，调整测试脚本验证标记与保留逻辑",
+  "activeForm": "正在处理数据层技术需求恢复与标记",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "开始执行数据层改造"
+  }
+}

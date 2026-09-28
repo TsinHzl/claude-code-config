@@ -1,0 +1,9 @@
+{
+  "id": "27",
+  "subject": "T5a 增量 CR 双分片委派",
+  "description": "T5a 四文件增量 CR：分片1 client.js+package.json，分片2 state-service.js+index.js，code-reviewer sub-agent 前台运行",
+  "activeForm": "执行 T5a 增量 CR",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

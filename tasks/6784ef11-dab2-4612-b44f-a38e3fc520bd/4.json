@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "阶段3：功能开发 (0/N)",
+  "description": "拓扑排序依次执行 dac-feature-loop → CR → archive",
+  "activeForm": "功能开发循环",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

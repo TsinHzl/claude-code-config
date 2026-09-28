@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "CR 审查 issue38 增量 diff",
+  "description": "code-reviewer sub-agent 审查 /tmp/cr_shard_issue38.txt 中的未提交改动（3 个文件，421 行 diff）",
+  "activeForm": "正在审查 issue38 增量 diff",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

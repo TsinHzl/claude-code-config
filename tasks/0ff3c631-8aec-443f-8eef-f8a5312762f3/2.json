@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "逐个澄清需求问题",
+  "description": "一次一个问题，澄清用户想要的 web search 方案",
+  "activeForm": "正在澄清需求",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

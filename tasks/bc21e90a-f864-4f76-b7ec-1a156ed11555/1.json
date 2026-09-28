@@ -1,0 +1,12 @@
+{
+  "id": "1",
+  "subject": "分析并修复 luna 模型自动压缩标签中断问题",
+  "description": "排查并在当前仓库中修复使用 luna 模型自动压缩时出现 analysis/summary 标签并导致对话中断的问题",
+  "activeForm": "正在创建任务清单",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "跟踪问题排查与修复流程"
+  }
+}

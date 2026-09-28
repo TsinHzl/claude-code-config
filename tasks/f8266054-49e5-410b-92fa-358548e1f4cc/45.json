@@ -1,0 +1,9 @@
+{
+  "id": "45",
+  "subject": "重构 V4 Matching 蒙层层级",
+  "description": "让整张 V4 播单卡片被半透明蒙层覆盖，仅底部接单按钮位于蒙层上方，并移除中间 LoadingWrapperView 的转圈与文案；同时保留非 V4 行为。",
+  "activeForm": "重构 V4 Matching 蒙层层级",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

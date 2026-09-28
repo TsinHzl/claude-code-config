@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "审查 runtime resolver 初版",
+  "description": "审查本轮新增 scripts/runtime-paths.sh 的路径优先级、运行时推断、配置隔离和安全边界。",
+  "activeForm": "审查 runtime resolver",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

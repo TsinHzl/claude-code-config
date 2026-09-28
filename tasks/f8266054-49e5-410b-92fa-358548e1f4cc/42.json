@@ -1,0 +1,9 @@
+{
+  "id": "42",
+  "subject": "完成播单卡片 V4 UI 调整",
+  "description": "按已确认方案修改评星图标、起终点间距、地址与按钮间距及 Flex 原价按钮尺寸颜色，并保持 V3.5 逻辑不变。",
+  "activeForm": "完成播单卡片 V4 UI 调整",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "subject": "修正 OpenSpec 提案（审查轮 2：5 条 Issues）",
+  "description": "第 2 轮审查返回 NEEDS_REVISION，5 条 Issues：①HIGH T3/验收第 3 条引用不存在的 confirm.sh/prompt.sh，且与 Out of Scope「scripts/ 不改动」矛盾，需明确 bash 侧脚本基线并将 guard.sh socket 审批分支改动显式入范围 ②MEDIUM MasterGo 环节两侧均未声明 ③MEDIUM 「UI 观感优于」主观表述无验收锚点 ④LOW 任务数 8→10、ClaudeCliAdapter ~3000 行口径不精确 ⑤LOW Windows Named Pipe 与 intellij 占位包未声明。修正 proposal/tasks/design 后核对。",
+  "activeForm": "修正 OpenSpec 提案（审查轮 2）",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

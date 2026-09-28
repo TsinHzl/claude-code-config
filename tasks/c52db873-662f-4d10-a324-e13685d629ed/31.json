@@ -1,0 +1,9 @@
+{
+  "id": "31",
+  "subject": "T8：MasterGo 设计稿获取对接",
+  "description": "经 dsh-tool-skill 调 /dac-ui-spec skill 路径复用 MasterGo MCP，codegen 前获取设计稿上下文注入，对接 flow_profile.skip_mastergo 跳过位。验证：MasterGo MCP 工具可调用、DSL 返回进入 codegen 上下文、skip_mastergo=true 时跳过。",
+  "activeForm": "实施 T8 MasterGo 对接",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

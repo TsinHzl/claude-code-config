@@ -1,0 +1,12 @@
+{
+  "id": "3",
+  "subject": "设计修复方案并编写针对性测试",
+  "description": "根据根因分析，设计修复方案并编写单元测试重现问题",
+  "activeForm": "正在创建测试与修复方案任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "任务拆解"
+  }
+}

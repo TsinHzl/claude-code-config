@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "写设计文档并提交",
+  "description": "保存到 docs/superpowers/specs/2026-09-10-cc-websearch-design.md 并 git commit",
+  "activeForm": "正在撰写设计文档",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

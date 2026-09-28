@@ -1,0 +1,9 @@
+{
+  "id": "40",
+  "subject": "实施并验证 Lambo 埋点",
+  "description": "获得确认后按最小 diff 实施、运行定向分析，并执行增量 Code Review。",
+  "activeForm": "实施并验证 Lambo 埋点",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

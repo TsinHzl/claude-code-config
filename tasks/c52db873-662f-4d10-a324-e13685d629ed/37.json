@@ -1,0 +1,9 @@
+{
+  "id": "37",
+  "subject": "阶段 4 第 1 轮 CR：4 分片 sub-agent 审查 + 合并摘要",
+  "description": "OpenSpec dsh-plugin-migration 阶段 4 第 1 轮 sub-agent 独立 CR：并行 4 个 code-reviewer 分片（shard_1~4），收齐报告后合并去重、展示摘要表并经 AskUserQuestion 勾选修复。",
+  "activeForm": "合并阶段 4 第 1 轮 CR 发现",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

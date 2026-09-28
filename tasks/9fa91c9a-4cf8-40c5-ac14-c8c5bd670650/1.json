@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "汇总分片审查结果并写入 cr-result.md",
+  "description": "两个 code-reviewer sub-agent（分片1/分片2）审查 origin/master -> hzl/feature-pull-order-v4-2rd 累积 diff（2488 行，SHARDS=2）。分片1 sub-agent 返回空输出需重跑；分片2 已返回完整 findings。需完成：重跑分片1、合并排序、独立统计、写报告 cr-result.md、清理临时文件。",
+  "activeForm": "汇总分片审查结果并写入 cr-result.md",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

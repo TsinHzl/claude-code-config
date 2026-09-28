@@ -1,0 +1,9 @@
+{
+  "id": "39",
+  "subject": "设计最小 Lambo 改动",
+  "description": "定义统一 V4 生命周期追踪方法、参数白名单及各节点调用位置，并形成可审阅 diff。",
+  "activeForm": "设计最小 Lambo 改动",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

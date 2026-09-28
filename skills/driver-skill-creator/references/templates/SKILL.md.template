@@ -1,0 +1,42 @@
+---
+name: <skill-name>
+description: >
+  <描述这个 skill 做什么>。当用户<触发条件 1>、<触发条件 2>、
+  <触发条件 3>时使用此 Skill。
+# --- 以下为可选字段,按需保留 ---
+# license: Apache-2.0
+# compatibility: 需要 Python 3.10+ 和 uv
+# metadata:
+#   author: <team-name>
+#   version: "1.0"
+# allowed-tools: Read Write Bash
+---
+
+# <Skill Display Name>
+
+## Workflow
+
+### Step 1: <阶段名>
+
+<内联描述 或 Read [references/<file>.md](references/<file>.md) 后执行>
+
+### Step 2: <阶段名>
+
+<...>
+
+## 额外资源
+
+仅在以下条件命中时读取对应 Reference:
+
+- 当对话涉及**<关键词 1、关键词 2、关键词 3>**时:
+  读取 [<参考文件>](references/<file>.md)
+
+## Gotchas
+
+- <违背合理假设的环境特定事实 1>
+- <违背合理假设的环境特定事实 2>
+
+## Constraints
+
+- <约束 1>
+- <约束 2>

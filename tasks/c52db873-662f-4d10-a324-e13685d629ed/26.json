@@ -1,0 +1,9 @@
+{
+  "id": "26",
+  "subject": "T5a：client 半骨架 + 浮层状态卡 + typert 网关数据通路",
+  "description": "按已定稿数据通路实施：host 半 GdStateService（TypertRemoteService 子类 + 手动原型 remote-methods marker）注册；client 半 lib/client.js（dsh.client.inject 注入 connection + slot 注入 shell.overlay 浮层状态卡 + 轮询 connection.rpc.call(\"/api\",\"gd/readState\",{args:{}})）；修改 lib/index.js 注册服务；修改 package.json（dsh.client.inject + exports[\"./client\"]）。实施后增量 CR + rsync 部署。验证：dsh web 页面可见浮层卡，state-update 后 ≤2s 刷新。",
+  "activeForm": "实施 T5a client 半骨架与浮层卡",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "等待 /api/stream 刷新完成并验证技术需求打标",
+  "description": "GET /api/stream 后台 curl（bxf2ibfd6）触发全量刷新。完成后核对 /tmp/dac-metrics-data.json 中 5 条技术打标（R-IBG-540494、T-DDF-587705、T-DDF-606867、T-DDF-626523、T-IBT-578892），向用户交付最终中文答复。",
+  "activeForm": "等待 SSE 刷新完成并验证打标",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "subject": "实施代码修复",
+  "description": "实施代码变更以正确处理自动压缩及相关流式状态转换",
+  "activeForm": "正在创建修复实施任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "任务拆解"
+  }
+}

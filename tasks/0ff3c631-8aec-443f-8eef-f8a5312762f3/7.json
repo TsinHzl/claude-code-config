@@ -1,0 +1,9 @@
+{
+  "id": "7",
+  "subject": "用户审阅 spec",
+  "description": "让用户审阅设计文档后再进入实现规划",
+  "activeForm": "等待用户审阅 spec",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

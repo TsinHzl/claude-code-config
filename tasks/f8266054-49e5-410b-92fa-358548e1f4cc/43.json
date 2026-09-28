@@ -1,0 +1,9 @@
+{
+  "id": "43",
+  "subject": "验证播单卡片 UI 修改",
+  "description": "执行 diff 检查、Flutter analyze 与独立代码审查，记录既有分析告警和本轮审查结果。",
+  "activeForm": "验证播单卡片 UI 修改",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

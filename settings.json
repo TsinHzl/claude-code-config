@@ -1,130 +1,7 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash",
-      "Read",
-      "Write",
-      "Edit",
-      "MultiEdit",
-      "WebFetch",
-      "WebSearch"
-    ],
-    "deny": [
-      "Bash(rm -rf *)",
-      "Bash(rm -fr *)",
-      "Bash(git push --force *)",
-      "Bash(git push -f *)",
-      "Bash(git reset --hard *)",
-      "Bash(git clean -f *)",
-      "Bash(dd *)"
-    ],
-    "defaultMode": "default"
-  },
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_input.content // \"\"' | { content=$(cat); lines=$(echo \"$content\" | wc -l | tr -d ' '); bytes=$(echo \"$content\" | wc -c | tr -d ' '); if [ \"$lines\" -gt 500 ] || [ \"$bytes\" -gt 51200 ]; then echo '{\"systemMessage\":\"⚠️ Large file detected ('\"$lines\"' lines, '\"$bytes\"' bytes). Consider using incremental writes: 1) Initial Write with skeleton, 2) Follow with Edit operations for content blocks.\",\"continue\":true}'; fi; } 2>/dev/null || true"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "StopFailure": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "__HOME__/.claude/statusline-command.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "__STATUSLINE_CMD__"
-  },
+  "autoUpdates": false,
+  "autoUpdatesChannel": "stable",
+  "effortLevel": "high",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
@@ -139,26 +16,274 @@
     "github@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true
   },
-  "theme": "dark-daltonized",
-  "mcpServers": {
-    "code-review": {
-      "args": [
-        "/Users/MacBook/.claude/mcp/code-review/index.js"
-      ],
-      "command": "node"
-    }
-  },
-  "userPromptSubmitHooks": [
-    {
-      "command": "/Users/MacBook/.claude/global_constraints_hook.sh"
-    }
-  ],
   "env": {
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
-  }
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1",
+    "CLAUDE_CODE_PROPAGATE_TRACEPARENT": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_UPDATES": "1",
+    "ENABLE_TOOL_SEARCH": "true"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "/Users/MacBook/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "Write|Edit|MultiEdit"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "jq -r '.tool_input.content // \"\"' | { content=$(cat); lines=$(echo \"$content\" | wc -l | tr -d ' '); bytes=$(echo \"$content\" | wc -c | tr -d ' '); if [ \"$lines\" -gt 500 ] || [ \"$bytes\" -gt 51200 ]; then echo '{\"systemMessage\":\"⚠️ Large file detected ('\"$lines\"' lines, '\"$bytes\"' bytes). Consider using incremental writes: 1) Initial Write with skeleton, 2) Follow with Edit operations for content blocks.\",\"continue\":true}'; fi; } 2>/dev/null || true",
+            "type": "command"
+          }
+        ],
+        "matcher": "Write"
+      },
+      {
+        "hooks": [
+          {
+            "command": "python3 -c \"import sys,json;d=json.load(sys.stdin);ti=d.get('tool_input',{});desc=(ti.get('description') or '').lower();kw=['review','cr','审查','code-review','code review','code_review'];is_cr=any(k in desc for k in kw);bg=ti.get('run_in_background');is_cr and bg is not False and print(json.dumps({'hookSpecificOutput':{'hookEventName':'PreToolUse','permissionDecision':'deny','permissionDecisionReason':'CR sub-agent 必须在前台运行。请在 Agent 调用中显式设置 run_in_background: false（00-change-gate.md Step 2/4 强制要求）'}}))\" 2>/dev/null || true",
+            "statusMessage": "检查 CR sub-agent 是否在前台运行...",
+            "type": "command"
+          }
+        ],
+        "matcher": "Agent"
+      },
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "/Users/MacBook/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "Write|Edit|MultiEdit"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash /Users/MacBook/.claude/hooks/auto-task-reminder.sh",
+            "statusMessage": "提醒主 agent 建任务..",
+            "type": "command"
+          }
+        ],
+        "matcher": "Agent"
+      },
+      {
+        "_source": "pii-detector",
+        "hooks": [
+          {
+            "command": "\"/Users/MacBook/.datasec/pii-detector\"",
+            "timeout": 5000,
+            "type": "command"
+          }
+        ],
+        "matcher": "Read|Write|Edit|Bash"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "FILE=\"$(pwd)/openspec/config.yaml\"; [ -f \"$FILE\" ] && jq -Rs '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":(\"[openspec/config.yaml]\\n\" + .)}}' \"$FILE\" || true",
+            "statusMessage": "读取 openspec/config.yaml...",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "/Applications/iTerm.app/Contents/Resources/utilities/cc-status 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "_source": "pii-detector",
+        "hooks": [
+          {
+            "command": "\"/Users/MacBook/.datasec/pii-detector\"",
+            "timeout": 5000,
+            "type": "command"
+          }
+        ],
+        "matcher": ".*"
+      }
+    ]
+  },
+  "mcpServers": {
+    "fetch-local": {
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "command": "/opt/homebrew/bin/npx",
+      "type": "stdio"
+    }
+  },
+  "permissions": {
+    "additionalDirectories": [],
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "WebFetch",
+      "WebSearch",
+      "mcp__plugin_playwright_playwright"
+    ],
+    "defaultMode": "default",
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)",
+      "Bash(dd *)",
+      "Edit(/Users/MacBook/.claude/CLAUDE.md)",
+      "Edit(/Users/MacBook/.claude/settings.local.json)",
+      "Edit(/Users/MacBook/.claude/keybindings.json)",
+      "Read(**/id_rsa)",
+      "Edit(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Edit(**/id_ed25519)",
+      "Read(**/id_ecdsa)",
+      "Edit(**/id_ecdsa)",
+      "Read(**/*.pem)",
+      "Edit(**/*.pem)",
+      "Read(**/*.key)",
+      "Edit(**/*.key)",
+      "Read(**/*.der)",
+      "Edit(**/*.der)",
+      "Read(**/*.pfx)",
+      "Edit(**/*.pfx)",
+      "Read(**/*.p12)",
+      "Edit(**/*.p12)",
+      "Read(**/*.p8)",
+      "Edit(**/*.p8)",
+      "Read(**/*.p7b)",
+      "Edit(**/*.p7b)",
+      "Read(**/*.ppk)",
+      "Edit(**/*.ppk)",
+      "Read(**/*.crt)",
+      "Edit(**/*.crt)",
+      "Read(**/*.cer)",
+      "Edit(**/*.cer)",
+      "Read(**/*.csr)",
+      "Edit(**/*.csr)",
+      "Read(**/*.gpg)",
+      "Edit(**/*.gpg)",
+      "Read(**/*.asc)",
+      "Edit(**/*.asc)",
+      "Read(**/*.pgp)",
+      "Edit(**/*.pgp)",
+      "Read(**/*.jks)",
+      "Edit(**/*.jks)",
+      "Read(**/*.keystore)",
+      "Edit(**/*.keystore)",
+      "Read(**/*.kdbx)",
+      "Edit(**/*.kdbx)",
+      "Read(**/.env*)",
+      "Edit(**/.env*)",
+      "Read(**/*.secret)",
+      "Edit(**/*.secret)",
+      "Read(**/*.token)",
+      "Edit(**/*.token)"
+    ]
+  },
+  "skipWebFetchPreflight": true,
+  "statusLine": {
+    "command": "/Users/MacBook/.claude/statusline-command.sh",
+    "type": "command"
+  },
+  "theme": "dark-daltonized"
 }

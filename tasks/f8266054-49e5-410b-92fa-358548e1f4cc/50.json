@@ -1,0 +1,9 @@
+{
+  "id": "50",
+  "subject": "CR：截图14蒙层颜色与V4按钮悬浮层",
+  "description": "用 code-reviewer sub-agent 审查截图14两项修复的增量 diff（loading_wrapper_view.dart 蒙层颜色 + broad_card_container.dart 悬浮按钮层）",
+  "activeForm": "正在执行截图14增量 CR",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

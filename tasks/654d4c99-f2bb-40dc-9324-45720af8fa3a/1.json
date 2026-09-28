@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "核查管理端语言能力与侧栏替换范围",
+  "description": "只读检查 admin-ui 的侧栏底部、主题、国际化、文案分布和现有验证脚本，确定是否需要全站文案迁移并澄清范围。",
+  "activeForm": "正在核查管理端语言能力与侧栏结构",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "探索项目上下文（websearch.rs 现状）",
+  "description": "检查 websearch.rs、converter、handlers、stream 中与 web_search 相关的现状",
+  "activeForm": "正在探索项目上下文",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

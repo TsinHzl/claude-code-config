@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "subject": "测试验证与前端构建打包",
+  "description": "更新后端测试脚本 test-exclude-technical-reqs.sh，运行前端单元测试与构建 npm run build，确保 dist 和 dist-single 正常更新并通过全部测试验证",
+  "activeForm": "正在创建测试与构建任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "测试验证与前端构建打包"
+  }
+}

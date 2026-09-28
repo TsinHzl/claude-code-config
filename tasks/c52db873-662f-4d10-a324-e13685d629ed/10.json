@@ -1,0 +1,9 @@
+{
+  "id": "10",
+  "subject": "修正 OpenSpec 产物（步骤 4.6 核验轮 1：4 偏离 + 3 超出）",
+  "description": "步骤 4.6 核验返回 NON_CONFORMS（4 条偏离）：#20 MasterGo 收窄未经用户确认、#9/#10 Layer 2.5 测试验证与 Layer 3 CR 在 T2c/spec 无落点、#26 skill 层四项能力等价性无验证任务。另 3 条超出项 #33 双主题/#34 多会话绑定/#35 token 口径说明需用户裁决保留或剔除。修正产物后重跑核验（最多 2 轮，本轮为第 1 轮）。",
+  "activeForm": "处理需求回溯核验结果",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

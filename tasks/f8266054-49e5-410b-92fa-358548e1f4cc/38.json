@@ -1,0 +1,9 @@
+{
+  "id": "38",
+  "subject": "梳理 V4 生命周期埋点",
+  "description": "定位展示、接单、拒单、结果、超时和退出的一次性调用边界，复用既有 Lambo 口径。",
+  "activeForm": "梳理 V4 生命周期埋点",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

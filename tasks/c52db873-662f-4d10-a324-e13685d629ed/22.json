@@ -1,0 +1,9 @@
+{
+  "id": "22",
+  "subject": "T3 增量 CR（2 分片 code-reviewer）",
+  "description": "dsh-plugin T3 IPC 审批桥增量变更 CR：分片 1 ipc-server.js、分片 2 bash 客户端 + 接线，SHARDS=2 前台 code-reviewer",
+  "activeForm": "T3 增量 CR 分片审查中",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

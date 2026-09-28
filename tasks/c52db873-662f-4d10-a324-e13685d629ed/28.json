@@ -1,0 +1,9 @@
+{
+  "id": "28",
+  "subject": "T5b：会话内卡片 + 双主题（Aurora/Daylight）",
+  "description": "session.append 自定义卡片 type 渲染验证（失败降级 assistant/message 富文本卡）；Phase 推进卡 / feature 状态卡 / 审批结果卡；2 套主题（深色 Aurora 默认 + 浅色 Daylight），CSS 变量对接 dsh 主题切换，零硬编码色值。验证：会话内卡片可见且随状态变更刷新；深/浅主题下切换均正常渲染。",
+  "activeForm": "T5b：会话内卡片 + 双主题实施中",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,26 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-08-07T09:22:15.837Z"
+  },
+  "anthropic-agent-skills": {
+    "source": {
+      "source": "git",
+      "url": "https://github.com/anthropics/skills.git"
+    },
+    "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/anthropic-agent-skills",
+    "lastUpdated": "2026-08-07T07:15:35.667Z"
+  },
+  "thedotmack": {
+    "source": {
+      "source": "github",
+      "repo": "thedotmack/claude-mem"
+    },
+    "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/thedotmack",
+    "lastUpdated": "2026-06-23T06:15:11.453Z"
+  }
+}

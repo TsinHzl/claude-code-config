@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "完成 code-review-single 并行分片审查（分片1+分片2）",
+  "description": "两个 code-reviewer sub-agent（a3ce1376be93325a1 / ae7b14a86582624af）已启动但中断时未返回最终 findings 文本；已 SendMessage 唤醒续跑，等待其返回 ## 🚫/## ⚠️/## 💡 完整结果后进入合并阶段。",
+  "activeForm": "正在解析分片1审查报告并等待分片2",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

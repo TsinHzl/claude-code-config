@@ -1,0 +1,9 @@
+{
+  "id": "6",
+  "subject": "Spec 自审",
+  "description": "检查占位符、矛盾、歧义、范围",
+  "activeForm": "正在自审 spec",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

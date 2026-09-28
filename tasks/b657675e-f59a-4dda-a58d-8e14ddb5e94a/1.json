@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "初始化",
+  "description": "环境依赖检查、.dac 工作目录初始化、平台扫描",
+  "activeForm": "初始化中",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

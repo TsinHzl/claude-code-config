@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "委派 sub-agent：需求回溯核验第 2 轮",
+  "description": "委派 code-reviewer sub-agent（run_in_background: false）执行 openspec 步骤 4.6 需求回溯核验第 2 轮：原始需求 5 点 vs 修正后的 proposal/spec/design/tasks 逐点矩阵核验。返回 CONFORMS 则进入步骤 5。",
+  "activeForm": "运行步骤 4.6 第 2 轮核验 sub-agent",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

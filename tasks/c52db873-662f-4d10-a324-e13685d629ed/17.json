@@ -1,0 +1,9 @@
+{
+  "id": "17",
+  "subject": "T2b 状态机对接：StateStore + WorkflowEngine",
+  "description": "StateStore（纯 JS）读写 .dac/state.json（经 state-update.sh），WorkflowEngine 编排 PRD 澄清 → openspec proposal 段（验证：dry-run 状态机正向流转 prd-parsing → feature-planned）",
+  "activeForm": "对接 .dac/state.json 状态机",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "32",
+  "subject": "T5b 增量 CR（2 分片 code-reviewer）",
+  "description": "T5b 方案 A 落地后对 client.js/engine.js/feature-loop.js/index.js/package.json/state-service.js/ipc-server.js 增量做 2 分片 code-reviewer 审查，合并发现、用户勾选修复、持久化已知问题。",
+  "activeForm": "处理 T5b 增量 CR",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

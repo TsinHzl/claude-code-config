@@ -2,17 +2,22 @@
 name: video-analyzer
 description: >
   Analyze a video from a streaming URL (YouTube, Bilibili, Twitter/X, Douyin, etc.) and produce
-  a detailed educational Markdown report saved to ~/Downloads. The report is written by the current
+  a progressive educational article saved to ~/Downloads/video-doc/. The article is written by the current
   Claude model after reading the extracted transcript — no external API key needed.
   Use when the user provides a video link and asks to "analyze", "summarize", "transcribe",
   or "report on" its content. Triggers on phrases like "分析这个视频", "帮我看这个视频", "视频内容分析",
   "analyze this video", "summarize the video at URL", "帮我分析这个链接的视频".
+compatibility: Requires Python 3.11+ (for faster-whisper), yt-dlp, and ffmpeg. macOS or Linux.
+metadata:
+  author: local
+  version: "2.0"
+  tags: "video,transcript,analysis,education,bilibili,youtube"
 ---
 
 # Video Analyzer
 
 Extracts video data with a Python script, then uses the **current Claude model** to generate
-a detailed educational report saved to `~/Downloads/`.
+a detailed educational report saved to `~/Downloads/video-doc/`.
 
 ## Input
 
@@ -59,6 +64,15 @@ $PYTHON "<SKILL_DIR>/scripts/analyze_video.py" "<VIDEO_URL>" \
 
 The script prints `EXTRACT_JSON=<path>` on completion. Read that file.
 
+**Error handling — validation loop:**
+1. If the script exits with a non-zero code, read stderr output
+2. Common fixes:
+   - `ERROR: Login required` → retry with `--cookies-from-browser chrome`
+   - `ERROR: Video unavailable` → inform user the video is geo-blocked or deleted
+   - `ModuleNotFoundError` → install missing dependency and retry
+3. If Whisper OOM → retry with `--model base` (smaller model)
+4. Only proceed to Step 3 after `EXTRACT_JSON=` line appears in stdout
+
 ### Step 3 — Read the extracted JSON
 
 ```bash
@@ -70,106 +84,229 @@ Use the Read tool on the path printed by the script.
 
 ### Step 4 — Generate the educational analysis
 
-Using the transcript and metadata from the JSON, write a comprehensive educational report
-in Chinese Markdown. **Quality bar: a reader who has never watched the video should be able
-to fully understand AND teach its content to others after reading this report.**
-Minimum total analysis length: 2500 Chinese characters. Never truncate or abbreviate sections.
+Using the transcript and metadata from the JSON, write a **progressive educational article**
+in Chinese Markdown. **Writing philosophy: act as a skilled teacher, not a reporter.**
+Build understanding layer by layer — start with a compelling hook, establish foundations with
+analogies, deepen complexity gradually, then deliver advanced insights. Every section must feel
+like a natural next step from the previous one. Insert an **inline SVG diagram** wherever a visual
+accelerates comprehension faster than prose.
+
+**Diagram rules (inline SVG):**
+- All diagrams MUST be written as inline `<svg>` elements directly in the Markdown.
+  Do **not** use Mermaid code blocks.
+- **Required diagrams:** (1) concept relationship map at §2, (2) argument/process flowchart or
+  sequence/timeline at §5, (3) full logic skeleton at §7
+- Optional anywhere: flowchart, sequence diagram, timeline — use when a picture beats 300 words
+- Keep each diagram focused (5–12 nodes/elements); label connectors with verbs
+- After every closing `</svg>`, add an italicized caption: `*▲ [一句话图示说明]*`
+
+**SVG authoring conventions:**
+- Every SVG must include `viewBox`, responsive `style`, and `xmlns`:
+  ```xml
+  <svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg"
+       style="width:100%;max-width:{W}px;font-family:sans-serif">
+  ```
+- Use `<defs>` to define reusable arrow markers:
+  ```xml
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#5D6D7E"/>
+    </marker>
+  </defs>
+  ```
+- Color palette (apply consistently across all diagrams):
+  - Blue `fill:#BDE0FE,stroke:#2980B9` — neutral / core concepts
+  - Green `fill:#D5F5E3,stroke:#27AE60` — positive / conclusions / outcomes
+  - Red/pink `fill:#FFCCCC,stroke:#CC0000` — problems / costs / risks
+  - Amber `fill:#FFF3CD,stroke:#E0A800` — decisions / key claims
+  - Background `fill:#FAFAFA` for the outer `<rect>`
+- Node shapes: `<rect rx="6">` for concepts; `<polygon>` (diamond) for decision points; `<ellipse>` for inputs/outputs
+- Edges: `<line>` or `<path>` with `marker-end="url(#arrowhead)"`; dashed edges use `stroke-dasharray="5,3"`
+- Text: `font-size="11"` for labels, `font-size="13" font-weight="bold"` for titles; use `text-anchor="middle"`
+- Layout: left-to-right for process flows, top-to-down for hierarchies; minimum 30% spacing between nodes
+- Multi-line labels: use multiple `<text>` elements with different `y` offsets (no `<foreignObject>`)
+- All SVG content must be self-contained — no external references or embedded HTML
+
+Minimum total length: 3000 Chinese characters. Never truncate or abbreviate sections.
 
 Required sections — follow this order exactly, use `##` for each section heading:
 
 ---
 
-**§1 视频概述**
-4–6 句精准概括：核心主题 + 目标受众 + 内容深度 + 视频的核心价值主张。
-末尾注明：本视频适合什么类型的读者、预期收获是什么。
+**§1 一分钟速览**
+用 3–4 句强力 Hook 开篇：直接说出视频最反直觉、最出乎意料或最有价值的核心结论，
+让读者产生"我必须继续读"的冲动。不要用平淡的"本视频介绍了……"开头。
+末尾用一句话承诺：读完本文你将掌握什么。
 
-**§2 背景与问题导入**
-深度展开以下四点（每点至少 2 句）：
-- 问题背景：该话题的社会 / 技术 / 文化背景
-- 核心痛点：视频要解答的具体问题或矛盾
-- 重要性：为什么现在值得关注、忽视会有什么代价
-- 作者切入视角：从什么独特角度展开讨论
+**§2 背景铺垫**
+在进入主题前，为读者建立 2–4 个必要的基础认知点。每个铺垫用 1–2 句通俗语言说清，
+解释为什么它对理解本视频不可缺少。
 
-**§3 核心内容详解**
-严格按视频逻辑顺序，每个主要段落 / 章节用 `###` 子标题，格式如下：
+然后在本节末尾**必须**插入一个 SVG 概念关系图，展示本视频所有核心概念及其相互关系
+（以下为格式示例，执行时替换为视频实际内容）：
+
+<svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;font-family:sans-serif">
+  <rect x="0" y="0" width="520" height="120" rx="6" fill="#FAFAFA"/>
+  <defs>
+    <marker id="arr-s2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#5D6D7E"/>
+    </marker>
+  </defs>
+  <rect x="30" y="40" width="110" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="85" y="65" text-anchor="middle" font-size="12" fill="#1A5276">概念A</text>
+  <rect x="205" y="40" width="110" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="260" y="65" text-anchor="middle" font-size="12" fill="#1A5276">概念B</text>
+  <rect x="380" y="40" width="110" height="40" rx="6" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="435" y="65" text-anchor="middle" font-size="12" fill="#1E8449">概念C</text>
+  <line x1="140" y1="60" x2="203" y2="60" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s2)"/>
+  <text x="172" y="52" text-anchor="middle" font-size="9" fill="#7F8C8D">关系</text>
+  <line x1="315" y1="60" x2="378" y2="60" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s2)"/>
+</svg>
+
+*▲ 概念关系图：理解本视频的知识地图*
+
+**§3 问题与挑战**
+用"设问-悬念"结构：先提出读者可能遇到过的困惑或现实痛点，再说明视频将如何回应这个挑战。
+若涉及流程对比或因果链，插入一个简洁的 inline SVG 图示。
+
+**§4 基础层：核心概念入门**
+面向零基础读者。用日常类比或生活场景解释每个关键概念，先类比后定义，绝不堆砌术语。格式：
+
+- **[概念名]**：想象一个你熟悉的场景…… → 在视频中，它具体指的是…… → 理解它的重要性在于……
+
+要求：不少于 3 个概念；每个 ≥ 100 字；类比必须具体、可感知。
+
+**§5 进阶层：核心论点深度解析**
+严格按视频逻辑顺序，每个主要段落用 `###` 子标题：
 
 ```
-### [段落主题标题]
-**论点**：该段落的核心观点（1–2 句）
-**论证过程**：逐步说明作者如何论证，保留逻辑链条
-**证据 / 示例**：视频使用的具体案例、实验、数据、类比
-**小结**：该段落的结论或与下一段的衔接
+### [段落主题]
+**核心论点**：……（1–2 句，清晰陈述观点）
+**逐步推导**：作者如何一步步建立这个论点，保留完整逻辑链条
+**具体证据**：案例 / 数据 / 实验 / 类比（详细还原）
+**与基础层的连接**：这个论点如何深化了§4 中的某个概念
 ```
 
-要求：不少于 3 个子段落；每个子段落 ≥ 150 字；忠实还原视频逻辑，不压缩。
+要求：不少于 3 个子段落；每个 ≥ 200 字。
+在最关键的论点处**必须**插入一个 inline SVG 流程图或序列图，可视化该论点的推导过程
+（以下为格式示例，执行时替换为视频实际逻辑）：
 
-**§4 数据与事实清单**
+<svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;font-family:sans-serif">
+  <rect x="0" y="0" width="600" height="140" rx="6" fill="#FAFAFA"/>
+  <defs>
+    <marker id="arr-s5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#5D6D7E"/>
+    </marker>
+  </defs>
+  <!-- 前提条件 -->
+  <rect x="20" y="50" width="100" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="70" y="75" text-anchor="middle" font-size="11" fill="#1A5276">前提条件</text>
+  <!-- 关键步骤 -->
+  <rect x="160" y="50" width="100" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="210" y="75" text-anchor="middle" font-size="11" fill="#1A5276">关键步骤</text>
+  <!-- 判断节点 (diamond) -->
+  <polygon points="340,70 380,50 420,70 380,90" fill="#FFF3CD" stroke="#E0A800" stroke-width="2"/>
+  <text x="380" y="74" text-anchor="middle" font-size="10" fill="#2C3E50">判断节点</text>
+  <!-- 结论A -->
+  <rect x="470" y="20" width="100" height="36" rx="6" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="520" y="43" text-anchor="middle" font-size="11" fill="#1E8449">结论A</text>
+  <!-- 结论B -->
+  <rect x="470" y="84" width="100" height="36" rx="6" fill="#FFCCCC" stroke="#CC0000" stroke-width="2"/>
+  <text x="520" y="107" text-anchor="middle" font-size="11" fill="#CC0000">结论B</text>
+  <!-- Edges -->
+  <line x1="120" y1="70" x2="158" y2="70" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s5)"/>
+  <line x1="260" y1="70" x2="338" y2="70" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s5)"/>
+  <line x1="420" y1="58" x2="468" y2="40" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s5)"/>
+  <text x="448" y="42" font-size="9" fill="#7F8C8D">是</text>
+  <line x1="420" y1="82" x2="468" y2="100" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s5)"/>
+  <text x="448" y="98" font-size="9" fill="#7F8C8D">否</text>
+</svg>
+
+*▲ 推导流程图：[该论点名称] 的逻辑链条*
+
+**§6 深度层：洞察与延伸**
+超越视频表面内容，提炼 2–3 个深层洞察：
+- 这个结论在更大范围内意味着什么
+- 视频没有明说但隐含的重要推论
+- 与其他领域知识的意外联系或反直觉含义
+
+**§7 论证结构全景图**
+**必须**用 inline SVG 图展示全片的逻辑骨架（核心命题 → 支撑论点 → 结论）
+（以下为格式示例，执行时替换为视频实际论证结构）：
+
+<svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;font-family:sans-serif">
+  <rect x="0" y="0" width="400" height="220" rx="6" fill="#FAFAFA"/>
+  <defs>
+    <marker id="arr-s7" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#5D6D7E"/>
+    </marker>
+  </defs>
+  <!-- 核心命题 -->
+  <rect x="140" y="20" width="120" height="40" rx="6" fill="#FFF3CD" stroke="#E0A800" stroke-width="2"/>
+  <text x="200" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#2C3E50">核心命题</text>
+  <!-- 论点A -->
+  <rect x="50" y="100" width="110" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="105" y="125" text-anchor="middle" font-size="11" fill="#1A5276">论点A</text>
+  <!-- 论点B -->
+  <rect x="240" y="100" width="110" height="40" rx="6" fill="#BDE0FE" stroke="#2980B9" stroke-width="2"/>
+  <text x="295" y="125" text-anchor="middle" font-size="11" fill="#1A5276">论点B</text>
+  <!-- 结论 -->
+  <rect x="140" y="170" width="120" height="40" rx="6" fill="#D5F5E3" stroke="#27AE60" stroke-width="2"/>
+  <text x="200" y="195" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E8449">结论</text>
+  <!-- Edges -->
+  <line x1="170" y1="60" x2="120" y2="98" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s7)"/>
+  <line x1="230" y1="60" x2="280" y2="98" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s7)"/>
+  <line x1="105" y1="140" x2="165" y2="168" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s7)"/>
+  <line x1="295" y1="140" x2="235" y2="168" stroke="#5D6D7E" stroke-width="1.5" marker-end="url(#arr-s7)"/>
+</svg>
+
+*▲ 论证结构图：全片逻辑骨架一览*
+
+然后用 2–3 句文字评价论证的严密程度（哪里最有力、哪里存在逻辑跳跃）。
+
+**§8 关键数据与事实**
 用表格列出视频引用的所有具体数据、统计数字、研究结论、历史事件：
 
-| 数据 / 事实 | 来源（如有） | 视频中的用途 |
+| 数据 / 事实 | 来源（如有） | 视频中的作用 |
 |------------|-------------|-------------|
 
 若视频无量化数据，改为列出所有引用的具体事例（不少于 3 条）。
 
-**§5 关键概念解释**
-视频中出现的每个专业术语，逐一解释，格式：
-- **[术语]**：通俗定义（≤ 2 句）→ 视频中的具体用法 → 为什么理解它对本话题重要
-
-要求：不少于 3 个术语。
-
-**§6 精彩金句摘录**
-逐字引用视频中最具价值的 3–8 句话（用引号），并注明：
+**§9 精华金句摘录**
+逐字引用视频中最具价值的 3–8 句话（用引号），每条注明：
 - 出现的上下文 / 大概时间节点
-- 这句话为什么值得摘录（核心洞察 / 论点锚点 / 反直觉观点）
+- 为什么值得摘录（核心洞察 / 反直觉观点 / 论点锚点）
 
 若字幕缺失，改为提炼 3–5 个最有价值的观点并用引号标注。
 
-**§7 论证结构分析**
-用层次大纲展现全片逻辑骨架：
+**§10 批判性视角**
+- ✅ 视频的独到见解与优点（各 ≥ 2 句）
+- ⚠️ 可能的局限性或未充分考虑的因素
+- 🔄 存在的替代观点或反驳角度
+- 📌 信息可能存在的立场偏差（若有）
 
-```
-核心命题
-├── 论点 A（支撑方式：数据 / 案例 / 类比）
-│   └── 反驳 / 补充
-├── 论点 B
-│   └── ...
-└── 结论
-```
-
-然后用 1–3 句评价论证的严密程度（哪里有力、哪里存在逻辑跳跃）。
-
-**§8 结论与核心观点**
-三层递进：
-1. 作者的直接结论（视频明确说了什么）
-2. 延伸含义（这个结论对更大领域意味着什么）
-3. 对读者的具体行动建议（看完后可以做什么）
-
-**§9 批判性视角**
-客观、公正地分析（各 ≥ 2 句）：
-- 视频的独到见解与优点
-- 可能的局限性或未充分考虑的因素
-- 存在的替代观点或反驳角度
-- 信息可能存在的立场偏差（若有）
-
-**§10 读者收获清单**
-分四类列出：
-- 🧠 理解的概念
-- 🛠 掌握的方法 / 框架
+**§11 你的收获清单**
+- 🧠 理解了哪些概念
+- 🛠 掌握了哪些方法 / 框架
 - 💡 可能改变的认知
-- ✅ 可立即应用的知识点
+- ✅ 可以立即应用的知识点
 
-**§11 延伸思考**
-提出 3–5 个开放性深度问题（不是视频已回答的，而是引导进一步探索的方向）。
+**§12 继续探索**
+3–5 个开放性深度问题（引导进一步思考，非视频已答的问题）。
+3–5 个延伸学习方向（书籍 / 领域 / 关键词 / 课程），说明与本视频内容的具体关联。
 
-**§12 相关主题推荐**
-基于视频内容，推荐 3–5 个延伸学习方向（书籍 / 领域 / 关键词 / 课程），说明与本视频的关联。
+### Step 5 — Write the report to ~/Downloads/video-doc/
 
-### Step 5 — Write the report to ~/Downloads/
+First ensure the output directory exists:
 
-Use the Write tool to save the full Markdown file:
+```bash
+mkdir -p ~/Downloads/video-doc
+```
+
+Then use the Write tool to save the full Markdown file:
 
 ```
-~/Downloads/video-analysis-<safe-title>-<YYYYMMDD_HHMMSS>.md
+~/Downloads/video-doc/video-analysis-<safe-title>.md
 ```
 
 Report structure:
@@ -213,24 +350,10 @@ Report structure:
 
 ---
 
-## 字幕 / 转录文本
-
-<details>
-<summary>展开完整字幕（点击展开）</summary>
-
-（full transcript here）
-
-</details>
-
----
-
 ## 内容分析
 
-（Step 4 的全部 12 个 sections 依次写在这里，每节用 `##` 标题）
+（Step 4 三层教学架构全部 12 节依次写在这里，§1 一分钟速览 → §12 继续探索，每节用 `##` 标题）
 
----
-
-*本报告由 video-analyzer skill 自动生成。*
 ```
 
 ### Step 6 — Report the output path to the user
@@ -269,3 +392,23 @@ Any yt-dlp-supported site: YouTube, Bilibili, Twitter/X, Douyin/TikTok, Weibo, V
 | `yt-dlp` | Metadata + subtitle extraction | `pip install yt-dlp` |
 | `faster-whisper` | Audio transcription fallback (Python 3.11) | `python3.11 -m pip install faster-whisper` |
 | `ffmpeg` | Audio conversion for Whisper | `brew install ffmpeg` |
+
+## Gotchas
+
+- Bilibili AI 字幕（`ai-zh`）需要登录态。未登录时 yt-dlp 拿不到字幕，必须加 `--cookies-from-browser chrome`。
+- YouTube age-restricted 视频同理，需要 cookies 才能下载音频做 Whisper 转录。
+- `faster-whisper` 建议使用 Python 3.11 以获得最佳兼容性；3.12+ 环境下 CTranslate2 wheel 可能不可用，需先验证。脚本优先使用 `python3.11`。
+- Whisper `medium` 模型首次运行需下载约 1.5GB，耗时较长；后续复用缓存在 `~/.cache/huggingface/`。
+- Whisper 对纯音乐 / 无人声片段会产生幻觉文本（hallucination），分析时需对照视频时长判断转录质量。
+- 部分 Bilibili 视频的 `duration` 字段返回 0 — 这是 yt-dlp 已知 bug，不影响字幕提取。
+- 输出文件名中的特殊字符（`/`、`:`、`?`）会被替换为 `-`，确保文件系统兼容。
+
+## Edge Cases
+
+| 场景 | 降级策略 |
+|------|---------|
+| 无字幕 + Whisper 不可用 | 生成 metadata-only 报告，§4–§12 标注"转录不可用，仅基于描述和元数据推断" |
+| 视频时长 > 3 小时 | Whisper 转录可能超时；建议用 `--model base` 或 `--no-transcribe` 依赖平台字幕 |
+| 转录质量差（大量 `[music]` 标记） | 在报告开头声明"转录质量有限"，分析聚焦于可辨识的文本段落 |
+| JSON 中 `transcript` 为空字符串 | 等同于"无字幕"场景，走 metadata-only 降级 |
+| 网络超时 / 下载中断 | 重试一次；仍失败则告知用户检查网络或 URL 有效性 |

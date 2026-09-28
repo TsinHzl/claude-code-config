@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "推进 Codex 行为等价实施",
+  "description": "在需求回溯 CONFORMS 且文档 CR 通过后，完成阶段 2 实施确认前的 OpenSpec 门控准备。",
+  "activeForm": "推进 Codex 行为等价实施",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

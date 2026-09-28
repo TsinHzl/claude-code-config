@@ -1,0 +1,8 @@
+{
+  "id": "25",
+  "subject": "T4 增量 diff CR（code-reviewer sub-agent）",
+  "description": "T4 落地后按 00-change-gate 启动 code-reviewer sub-agent（SHARDS=1，run_in_background: false）审查 skill-index.js + index.js 增量 diff，返回报告后经 AskUserQuestion 勾选修复。",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

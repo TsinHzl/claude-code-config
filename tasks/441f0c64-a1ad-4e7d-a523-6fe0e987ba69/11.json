@@ -1,0 +1,9 @@
+{
+  "id": "11",
+  "subject": "收集 [WS-DIAG] 日志验证 Did 0 searches 根因",
+  "description": "在 sse-streamer.js 添加 [WS-DIAG] 临时诊断日志（已实施并通过 CR PASS），等待用户部署重启后执行一次 WebSearch 并回贴日志，确认内层 grounding 响应中 groundingMetadata 的真实形状（是否 content 级、是否含 searchEntryPoint、是否有 googleSearch functionCall），从而定位零块发射根因。",
+  "activeForm": "正在收集 WS-DIAG 诊断证据",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

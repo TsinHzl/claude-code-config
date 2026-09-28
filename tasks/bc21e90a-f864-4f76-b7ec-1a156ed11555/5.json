@@ -1,0 +1,12 @@
+{
+  "id": "5",
+  "subject": "运行测试与回归验证",
+  "description": "运行单元测试和完整测试套件，验证修复无副作用",
+  "activeForm": "正在创建验证任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "任务拆解"
+  }
+}

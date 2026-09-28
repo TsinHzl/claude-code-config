@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "复核 runtime resolver 修复",
+  "description": "复核上一轮 CR 所选全部修复，确认 resolver 不再绕过符号链接、误接受目录或丢失显式 personal trace。",
+  "activeForm": "复核 runtime resolver 修复",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

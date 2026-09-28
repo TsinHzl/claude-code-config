@@ -1,0 +1,11 @@
+{
+  "id": "2",
+  "subject": "分析 dac-trace-service 后端现状",
+  "description": "分析后端 API、实体、迁移版本，核对 CLAUDE.md 描述",
+  "activeForm": "分析 dac-trace-service 后端",
+  "status": "in_progress",
+  "blocks": [
+    "5"
+  ],
+  "blockedBy": []
+}

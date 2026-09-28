@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "分析 dashboard Vue3 前端",
+  "description": "sub-agent aaf400ad8aaf3ba72 分析 dashboard-app 的架构、Tab 结构、API 层、enrich 链路、图表、刷新机制、modal 流程与问题",
+  "activeForm": "分析 Vue3 前端中",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

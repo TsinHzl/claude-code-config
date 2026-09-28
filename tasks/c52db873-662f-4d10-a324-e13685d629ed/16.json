@@ -1,0 +1,9 @@
+{
+  "id": "16",
+  "subject": "T2a 增量 diff CR（code-reviewer sub-agent）",
+  "description": "T2a spike 增量 diff（dsh-gd-workflow/lib/index.js）门控 CR，code-reviewer sub-agent 已返回 PASS + 6 findings（3 medium / 3 low）。处理：AskUserQuestion 让用户勾选修复项，未选中的 critical/high（无）持久化；本次无 critical/high，medium/low 记录待用户决定。",
+  "activeForm": "处理 T2a CR 结果",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

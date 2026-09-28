@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "分节展示设计并获得用户确认",
+  "description": "架构、组件、数据流、错误处理、测试，逐节确认",
+  "activeForm": "正在展示设计",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

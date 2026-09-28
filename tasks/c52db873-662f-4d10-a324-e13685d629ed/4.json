@@ -1,0 +1,11 @@
+{
+  "id": "4",
+  "subject": "OpenSpec 阶段 1：起草变更提案 dsh-plugin-migration",
+  "description": "按 ~/.claude/rules/openspec.md 阶段 1：创建 proposal.md / tasks.md / spec.md / design.md，展示全文，sub-agent 质量审查，需求回溯核验，AskUserQuestion 硬性门控",
+  "activeForm": "正在起草 OpenSpec 提案",
+  "status": "completed",
+  "blocks": [
+    "5"
+  ],
+  "blockedBy": []
+}

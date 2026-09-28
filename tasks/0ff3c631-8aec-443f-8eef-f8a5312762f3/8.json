@@ -1,0 +1,9 @@
+{
+  "id": "8",
+  "subject": "转入 writing-plans 生成实现计划",
+  "description": "调用 superpowers:writing-plans 生成实现计划",
+  "activeForm": "正在生成实现计划",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "29",
+  "subject": "T6：设置面板（settings.section 注册）",
+  "description": "settings 区自有 section/tab（主题选择 / socket 开关 / token 口径说明），变更即时生效且持久化。先例：dsh-client-ui-settings-plugins 的 settings.section + settings.*.tab slot 注册形态。持久化方案：host settings API（若可写）或 localStorage。",
+  "activeForm": "T6：探测 dsh Settings 扩展点并设计设置面板",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

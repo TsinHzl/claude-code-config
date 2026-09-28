@@ -1,0 +1,9 @@
+{
+  "id": "11",
+  "subject": "重跑步骤 4.6 需求回溯核验（第 2 轮）",
+  "description": "修正产物后重跑需求回溯核验 sub-agent（第 2 轮，最后一轮）。CONFORMS 则进入步骤 5 AskUserQuestion 硬性门控；NON_CONFORMS 残留则硬阻塞并 AskUserQuestion 展示残留项。",
+  "activeForm": "运行步骤 4.6 第 2 轮核验",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

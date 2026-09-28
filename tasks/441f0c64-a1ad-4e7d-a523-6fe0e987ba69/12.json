@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "WS 修复 sub-agent CR 审查与结果处理",
+  "description": "对 sse-streamer.js / response-converter.js 的 groundingMeta 读点修复（candidate 级兜底）运行 sub-agent CR，展示明细表，AskUserQuestion 勾选修复项，然后按用户指示提交推送。",
+  "activeForm": "处理修复 CR 审查",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

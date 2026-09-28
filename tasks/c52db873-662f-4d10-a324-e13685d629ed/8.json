@@ -1,0 +1,9 @@
+{
+  "id": "8",
+  "subject": "修正 OpenSpec 提案（审查轮 1）",
+  "description": "按 code-reviewer 7 条 Issues 修正 proposal.md / tasks.md：拆分 T2（先 spike agent turn 驱动机制）、补浮层卡数据通路、补多会话并发与 socket 路径风险、拆 T6、主观验收改可核查项、token 口径任务承接、/skill 补全探测",
+  "activeForm": "正在修正提案（CR 第 1 轮）",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

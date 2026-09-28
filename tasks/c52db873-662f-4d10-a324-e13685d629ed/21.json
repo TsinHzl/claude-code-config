@@ -1,0 +1,9 @@
+{
+  "id": "21",
+  "subject": "T3：IPC 审批桥（ipc-server + guard.sh + confirm.sh/prompt.sh + index.js 接线）",
+  "description": "ipc-server.js + guard.sh 4 处替换 + confirm.sh/prompt.sh + harness env 透传 + index.js ensureApprovalBridge + ask 适配层接线 + 三路径验证 + tasks.md 勾选",
+  "activeForm": "实施 T3 IPC 审批桥",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

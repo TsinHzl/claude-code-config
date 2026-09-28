@@ -1,0 +1,9 @@
+{
+  "id": "24",
+  "subject": "T4：命令面 /gd-* 注册 + 补全探测 + 单通道语义",
+  "description": "T4 命令面：/gd-* 命令注册（status / pause / resume / clear / help / skill 索引）；先探测 dsh 输入框对插件命令的补全机制（含参数级补全，rawInput 已证实可用）；无补全则降级为仅注册命令、skill 选择走 userQuestions 选项卡；awaiting_text/awaiting_choice 单通道语义（参照原插件 handlers.ts handleConsoleSubmit）。验证：输入框键入 / 可见 gd 命令，/gd-status 返回 state.json 摘要；补全探测结论记录于任务备注。",
+  "activeForm": "T4 命令面探测与实施中",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

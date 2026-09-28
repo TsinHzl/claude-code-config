@@ -1,0 +1,11 @@
+{
+  "id": "3",
+  "subject": "分析 dashboard 前端与 server 现状",
+  "description": "分析看板前后端现状、新功能、构建命令",
+  "activeForm": "分析 dashboard 前后端",
+  "status": "in_progress",
+  "blocks": [
+    "5"
+  ],
+  "blockedBy": []
+}

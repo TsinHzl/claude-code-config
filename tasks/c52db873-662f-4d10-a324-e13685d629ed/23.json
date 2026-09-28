@@ -1,0 +1,9 @@
+{
+  "id": "23",
+  "subject": "T3 CR 修复：2 High + 2 Medium + 回归验证",
+  "description": "T3 CR 第 1 轮用户勾选「全选 2 High」+ 授权 2 个一行级 Medium。修复：①ipc-server.js close 未 handled 则 handled=true + abort.abort()（已完成）；②line 提取后补 4096 硬校验；③probeSocket 1s 超时；④confirm.sh settimeout 300→310。修复后重跑 node /tmp/test-t3-ipc.mjs 验证 22 断言不回归，按 00-change-gate Step 4 判定第 2 轮 CR 是否触发，处理 cr-known-issues 记账。",
+  "activeForm": "正在修复 T3 CR High 条目",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "6",
+  "subject": "OpenSpec 阶段 3：逐任务实施",
+  "description": "阶段 3：逐任务四步循环实施（插件包骨架 → workflow 编排 → IPC 桥 → client 半 → patch 接入验证）",
+  "activeForm": "正在逐任务实施",
+  "status": "completed",
+  "blocks": [
+    "7"
+  ],
+  "blockedBy": [
+    "5"
+  ]
+}

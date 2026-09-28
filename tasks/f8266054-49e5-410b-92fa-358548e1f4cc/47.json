@@ -1,0 +1,9 @@
+{
+  "id": "47",
+  "subject": "定位 V4 接单 Toast",
+  "description": "查找截图中的 Cargando/Conectando 转圈与文案渲染路径，确认仅移除 V4 Toast 的内容。",
+  "activeForm": "定位 V4 接单 Toast",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "5",
+  "subject": "OpenSpec 阶段 2：审查确认",
+  "description": "阶段 2：用户 AskUserQuestion 确认后 DRAFT→IN_PROGRESS，创建 feature/dsh-plugin-migration 分支",
+  "activeForm": "等待提案确认",
+  "status": "completed",
+  "blocks": [
+    "6"
+  ],
+  "blockedBy": [
+    "4"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "subject": "前端统计口径过滤 is_technical 需求",
+  "description": "修改 dashboard-app/src/utils/version.js，在 filterExcludedFromStats 等统计方法中排除 is_technical 为 true 的需求，使概览、当前版本、版本视图的需求指标均剔除技术需求",
+  "activeForm": "正在创建前端统计过滤适配任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "前端统计口径剔除技术需求"
+  }
+}

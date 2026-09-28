@@ -1,0 +1,9 @@
+{
+  "id": "8",
+  "subject": "排查聊天回复内容异常及历史记录角色显示错误问题",
+  "description": "深入排查为什么 AI 回复内容为编程助手模板（Antigravity），以及为什么再次进入聊天记录时所有消息都显示为用户消息",
+  "activeForm": "正在排查原因",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "35",
+  "subject": "T7 修复增量 sub-agent CR",
+  "description": "T7 修复三处（post-codegen-check.sh / build-retry-context.sh / feature-loop.js:206）的增量 diff sub-agent CR 审查",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

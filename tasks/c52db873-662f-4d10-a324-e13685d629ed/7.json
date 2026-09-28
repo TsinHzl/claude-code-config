@@ -1,0 +1,11 @@
+{
+  "id": "7",
+  "subject": "OpenSpec 阶段 4：CR + 归档",
+  "description": "阶段 4 前：sub-agent 独立 CR（第十一节）；阶段 4：验收确认 → 归档",
+  "activeForm": "正在 CR 与归档",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": [
+    "6"
+  ]
+}

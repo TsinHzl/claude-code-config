@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "设计主编排入口测试",
+  "description": "为 Codex 主编排入口定义隔离 HOME 安装、Hook、子 Skill、Git、Dashboard 成功链路及中断链路的先行测试。",
+  "activeForm": "设计主编排入口测试",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

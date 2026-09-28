@@ -1,0 +1,12 @@
+{
+  "id": "3",
+  "subject": "需求卡片与各视图添加技术需求醒目标记",
+  "description": "在 ReqCard.vue、DdpChips.vue、OverviewTab.vue、CurVersionTab.vue、VersionTab.vue 等组件中为 is_technical 需求渲染醒目的专属技术需求标签/Badge，并保证所有视图展示技术需求且指标不计入",
+  "activeForm": "正在创建 UI 标记与展示任务",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": [],
+  "metadata": {
+    "reason": "视图展示与显著标记技术需求"
+  }
+}

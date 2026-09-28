@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "分析 dashboard Python 后端",
+  "description": "sub-agent af7c1c2a8a1dcd4c6 分析 dashboard-server.py 的接口、数据源、DDP 集成、双口径、认证、并发模型与问题",
+  "activeForm": "分析 Python 后端中",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

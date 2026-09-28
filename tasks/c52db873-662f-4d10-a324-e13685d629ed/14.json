@@ -1,0 +1,9 @@
+{
+  "id": "14",
+  "subject": "T2a：agent turn 驱动 spike",
+  "description": "定义 node 半驱动一次 dsh agent turn 的机制，最小代码实证向会话注入一条步骤指令。已侦察到 API 面：agents.create + agent.followup(createUserMessage) + agent.whenIdle + ctx.tools.register(defineTool)。失败则阻塞后续任务，升级方案重新过审",
+  "activeForm": "正在执行 T2a agent turn 驱动 spike",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

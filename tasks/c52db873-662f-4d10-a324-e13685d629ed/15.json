@@ -1,0 +1,9 @@
+{
+  "id": "15",
+  "subject": "T1 增量 diff CR（code-reviewer sub-agent）",
+  "description": "SHARDS=1，code-reviewer 前台审查 T1 增量 diff（dsh-plugin 4 文件 + cordis.patch.yml），门控 CR 不写本地报告文件",
+  "activeForm": "正在执行 T1 增量 CR sub-agent",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

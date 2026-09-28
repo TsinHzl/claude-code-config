@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "拉取 PR #35 到本地分支",
+  "description": "使用 gh pr checkout 35 拉取 feat/add-cc_switch 分支到本地，切换到该分支",
+  "activeForm": "拉取 PR #35 到本地分支",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}
