@@ -1,9 +1,0 @@
-{
-  "id": "1",
-  "subject": "初始化",
-  "description": "环境检查、DAC 状态恢复、平台扫描",
-  "activeForm": "初始化",
-  "status": "completed",
-  "blocks": [],
-  "blockedBy": []
-}

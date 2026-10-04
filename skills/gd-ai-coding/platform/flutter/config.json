@@ -1,0 +1,13 @@
+{
+  "platform": "flutter",
+  "language": "dart",
+  "file_ext": [".dart"],
+  "src_root": "lib/",
+  "check_cmd": "dart analyze",
+  "format_cmd": "dart format",
+  "scaffold_enabled": true,
+  "naming_convention": {
+    "file": "snake_case",
+    "class": "PascalCase"
+  }
+}

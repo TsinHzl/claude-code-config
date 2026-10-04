@@ -1,0 +1,8 @@
+{
+  "id": "5",
+  "subject": "定位流式响应中断与超时根因",
+  "description": "已定位错误发生在reqwest HTTP body读取；当前1000s超时不匹配98.53s断流，缺失source链无法区分HTTP2 reset/连接提前关闭/超时。诊断补丁已落地并验证，阻塞于部署补丁后的复现日志，未声称断流已修复。上一轮6文件保持。",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

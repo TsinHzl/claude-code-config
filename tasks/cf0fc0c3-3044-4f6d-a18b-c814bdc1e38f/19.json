@@ -1,0 +1,10 @@
+{
+  "id": "19",
+  "subject": "执行真实 Claude Code 单任务工具循环",
+  "description": "真实CLI 2.1.231、Sonnet4.6、账号47已复现。单条用户重命名任务后实际Read→Edit→end_turn，13字段落盘，3次真实API请求，每轮完整61921字实际规则、Agent/AskUserQuestion均存在；上游仅Read/Edit，与SSE ID一致，无门控调用，最终正常end_turn。证据：/var/folders/fh/5v2t3809581gh43_5s8jn0b80000gp/T/kiro-real-cc-ndavk8e3/trial-01。未修改原配置凭据。",
+  "status": "completed",
+  "blocks": [
+    "20"
+  ],
+  "blockedBy": []
+}

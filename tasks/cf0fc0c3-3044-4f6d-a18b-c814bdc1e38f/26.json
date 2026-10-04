@@ -1,0 +1,8 @@
+{
+  "id": "26",
+  "subject": "汇报仓库静默丢弃扫描结果",
+  "description": "Explore sub-agent 已完成全仓静默丢弃扫描，返回 7 条 findings，需向用户汇报。",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

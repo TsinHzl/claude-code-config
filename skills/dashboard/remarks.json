@@ -1,0 +1,135 @@
+{
+  "T-IBT-641461": {
+    "reason_tag": "",
+    "note": "工作流建错，废弃",
+    "author": "慕常青",
+    "excluded_from_stats": true,
+    "updated_at": 1788250004000
+  },
+  "T-IBT-636412": {
+    "reason_tag": "第三方SDK对接",
+    "note": "仅需在壳工程手动升级xlab版本号",
+    "author": "李俊德",
+    "excluded_from_stats": true,
+    "updated_at": 1788158727000
+  },
+  "T-IBT-637784": {
+    "reason_tag": "第三方SDK对接",
+    "note": "",
+    "author": "刘剑全",
+    "excluded_from_stats": true,
+    "updated_at": 1788232157000
+  },
+  "T-IBT-647084": {
+    "reason_tag": "其他",
+    "note": "无prd、技术文档，仅针对异常代码做兼容",
+    "author": "张一潇",
+    "excluded_from_stats": false,
+    "updated_at": 1788232174000
+  },
+  "T-IBT-650584": {
+    "reason_tag": "其他",
+    "note": "技术项目，开发习惯是通过多轮会话逐步生成方案和对应代码",
+    "author": "卢建至",
+    "excluded_from_stats": false,
+    "updated_at": 1788315138000
+  },
+  "T-IBT-649408": {
+    "reason_tag": "非业务代码",
+    "note": "技术埋点需求，正在借助gd-ai-coding开发中。",
+    "author": "李俊德",
+    "excluded_from_stats": true,
+    "updated_at": 1788271995000
+  },
+  "T-IBT-653384": {
+    "reason_tag": "非业务代码",
+    "note": "",
+    "author": "吴洪键",
+    "excluded_from_stats": true,
+    "updated_at": 1788488107000
+  },
+  "T-IBT-650945": {
+    "reason_tag": "其他",
+    "note": "无prd、技术文档，仅针对异常代码做兼容",
+    "author": "刘剑全",
+    "excluded_from_stats": false,
+    "updated_at": 1788785865000
+  },
+  "T-IBT-658204": {
+    "reason_tag": "非业务代码",
+    "note": "技术需求，需要不断对话进行方案调整，打包，验证，继续对话，方案调衡，打包，验证，重复循环这个操作",
+    "author": "卢建至",
+    "excluded_from_stats": true,
+    "updated_at": 1789384367000
+  },
+  "T-IBT-642594": {
+    "reason_tag": "",
+    "note": "都是数梦+rds数据库相关的网页操作。服务端代码更多是本地增加调试日志，这种情况不是工作流的常规使用场景。",
+    "author": "翁乐",
+    "excluded_from_stats": true,
+    "updated_at": 1789384348000
+  },
+  "T-IBT-651386": {
+    "reason_tag": "",
+    "note": "合并 Android 16 升级，使用同一个流水线",
+    "author": "马健哲",
+    "excluded_from_stats": true,
+    "updated_at": 1789386891000
+  },
+  "T-IBT-657452": {
+    "reason_tag": "非业务代码",
+    "note": "",
+    "author": "介扬",
+    "excluded_from_stats": true,
+    "updated_at": 1789374706000
+  },
+  "T-IBT-658322": {
+    "reason_tag": "仅改配置",
+    "note": "",
+    "author": "李俊德",
+    "excluded_from_stats": true,
+    "updated_at": 1789633267000
+  },
+  "T-IBT-661057": {
+    "reason_tag": "",
+    "note": "仅仅是更新一个埋点名称，无需使用dac",
+    "author": "贺中林",
+    "excluded_from_stats": true,
+    "updated_at": 1789914469000
+  },
+  "T-IBT-587498": {
+    "reason_tag": "其他",
+    "note": "过期了的ddp。已废弃不使用",
+    "author": "贺中林",
+    "excluded_from_stats": true,
+    "updated_at": 1789990131000
+  },
+  "T-IBT-660761": {
+    "reason_tag": "非业务代码",
+    "note": "",
+    "author": "张一潇",
+    "excluded_from_stats": true,
+    "updated_at": 1789958146000
+  },
+  "T-IBT-657419": {
+    "reason_tag": "非业务代码",
+    "note": "",
+    "author": "慕常青",
+    "excluded_from_stats": true,
+    "updated_at": 1790042406000
+  },
+  "T-IBT-656569": {
+    "reason_tag": "非业务代码",
+    "note": "后续版本接入，该版本已经上线",
+    "author": "杨冰",
+    "excluded_from_stats": true,
+    "updated_at": 1790044819000
+  },
+  "T-IBT-625901": {
+    "reason_tag": "非业务代码",
+    "note": "仅仅是更新语言包，执行一个脚本就搞定的事，不需要使用ai工作流",
+    "author": "贺中林",
+    "excluded_from_stats": true,
+    "updated_at": 1790239501000
+  }
+}

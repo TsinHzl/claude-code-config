@@ -1,0 +1,10 @@
+{
+  "id": "20",
+  "subject": "核对违例决策点并做单变量反事实",
+  "description": "已完成3次真实CLI端到端及26次真实失败决策点对照（共44个上游请求，12.0896783credits）。trial01原序Read/Edit后正常end_turn漏门控；trial02仅把完整gate段移到规则末尾恢复前确认/CR询问/真实子代理；trial03恢复原序也成功（规则路径归一化hash与trial01相同），因此不能认定排序唯一根因或确定性修复。决策点重放原序/整块上提system各2失败，gate-first/gate-last各2成功；去project2成功，去global/README各2失败，等字符neutral2成功。独立agent aff2c2b957ed249f8验证证据并确认尚缺代码级根因和最终上游body取证。已确认直接故障为上游未生成工具调用，不是CC或SSE吞调用。未修改本轮生产源码、未提交，隔离实例已关闭。保留in_progress，不能将故障层定位冒充具体代码级根因。",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": [
+    "19"
+  ]
+}

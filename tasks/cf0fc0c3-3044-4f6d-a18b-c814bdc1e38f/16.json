@@ -1,0 +1,11 @@
+{
+  "id": "16",
+  "subject": "确认本地实测入口与运行版本",
+  "description": "已cargo build --offline编译当前工作区；隔离随机loopback端口启动新二进制，凭据只作不解析字段的临时副本，不输出密钥。合成Sonnet4.6请求HTTP200、5.79秒、end_turn、READY.。实例已关闭，原始配置/凭据哈希未变。当前会话默认远端gpt-6-astra路由未使用。",
+  "activeForm": "核对本地服务与实测入口",
+  "status": "completed",
+  "blocks": [
+    "17"
+  ],
+  "blockedBy": []
+}

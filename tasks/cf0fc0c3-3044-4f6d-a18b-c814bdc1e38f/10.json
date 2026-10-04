@@ -1,0 +1,9 @@
+{
+  "id": "10",
+  "subject": "核查抓包规则在当前代理中的传递完整性",
+  "description": "已在当前4ef12db修复分支逐项核对log2.json并完成内存静态对照（非真实Kiro重放）：19份本地规则56007字符与3段顶层system保留；messages[1]为system，25941字符技能/agent说明被末尾非user prefill裁剪；Workflow描述19290截为10000，丢9290字符；Schema白名单删31项（11个$schema、3默认值、17限制），required/enum保留。确认诊断漏检messages内system与Workflow；未知Gemini模型走开放透传，不可据模型名断言不经本仓库。5项规则保留测试通过，未修改文件/切换分支，未执行上游请求。",
+  "activeForm": "核查抓包规则与当前转换链",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

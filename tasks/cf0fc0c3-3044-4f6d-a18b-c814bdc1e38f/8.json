@@ -1,0 +1,9 @@
+{
+  "id": "8",
+  "subject": "核对复现日志中的规则与工具传递",
+  "description": "已只读核对766行日志及诊断后发送链：32个生成请求中31个带工具请求均保留含CR标识的56007字符候选文本；Agent/AskUserQuestion/ToolSearch均输入输出存在且描述匹配。未发现诊断后正常发送链删除规则/工具。日志缺最终effort/thinking、实际工具调用序列和diagnostic_id，不能证明具体漏CR根因；已区分system角色表示、默认effort和adaptive账号开关等代码事实与未证实因果。未修改代码；漏CR问题尚未解决，流中断问题也未借此标为解决。",
+  "activeForm": "核对复现日志与规则传递",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

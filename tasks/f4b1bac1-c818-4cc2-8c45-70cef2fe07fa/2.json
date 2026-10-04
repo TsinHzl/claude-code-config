@@ -1,9 +1,0 @@
-{
-  "id": "2",
-  "subject": "阶段1：需求分析",
-  "description": "DDP/PRD/设计稿收集 + LLM 处理 + Spec 确认",
-  "activeForm": "需求分析中",
-  "status": "in_progress",
-  "blocks": [],
-  "blockedBy": []
-}

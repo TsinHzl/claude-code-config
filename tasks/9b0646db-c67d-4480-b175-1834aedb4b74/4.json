@@ -1,9 +1,0 @@
-{
-  "id": "4",
-  "subject": "cargo check 验证 Rust 侧",
-  "description": "运行 cargo check 验证 Rust 编译（PR 未改 src/，但确认嵌入资源与整体无回归）",
-  "activeForm": "cargo check 验证 Rust 侧",
-  "status": "completed",
-  "blocks": [],
-  "blockedBy": []
-}

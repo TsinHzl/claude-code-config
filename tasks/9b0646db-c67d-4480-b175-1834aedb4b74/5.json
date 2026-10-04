@@ -1,9 +1,0 @@
-{
-  "id": "5",
-  "subject": "合并 PR #35 到 master",
-  "description": "全部验证通过后，将 PR 合并到主分支 master",
-  "activeForm": "合并 PR #35 到 master",
-  "status": "in_progress",
-  "blocks": [],
-  "blockedBy": []
-}

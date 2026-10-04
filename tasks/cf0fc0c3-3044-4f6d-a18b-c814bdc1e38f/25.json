@@ -1,0 +1,8 @@
+{
+  "id": "25",
+  "subject": "CR 审查删除 RULE-DIAG 日志增量",
+  "description": "删除 RULE-DIAG 诊断日志的增量 diff 已交 code-reviewer sub-agent 审查，处理结论并收尾提交。",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

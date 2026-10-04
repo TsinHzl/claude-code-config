@@ -1,0 +1,9 @@
+{
+  "id": "23",
+  "subject": "取证最终 Kiro body 验证规则传递",
+  "description": "KIRO_DUMP_BODY=1 dump 最终请求体，用真实 Claude Code 复现 CR 遗漏 trial，逐项核对规则文本存在性/位置/角色，定位后删除 dump 代码。",
+  "activeForm": "取证最终 Kiro body 中的规则传递",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,82 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/gd-ai-coding/scripts/permission/guard.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/gd-ai-coding/scripts/permission/skill-guard.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/skills/gd-ai-coding/scripts/permission/skill-postuse.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(bash ~/.claude/skills/gd-ai-coding/scripts/*)",
+      "Bash(bash -* ~/.claude/skills/gd-ai-coding/scripts/*)",
+      "Bash(mcporter call *)",
+      "Bash(openspec init*)",
+      "Bash(openspec new*)",
+      "Bash(openspec validate*)",
+      "Bash(openspec status*)",
+      "Bash(opsx new*)",
+      "Bash(opsx status*)",
+      "Bash(cp */dac-prd.*/trimmed-prd.md *openspec/*)",
+      "Bash(mkdir -p .dac*)",
+      "Bash(mkdir -p openspec*)",
+      "Bash(jq * .dac/*)",
+      "Bash(jq * openspec/*)",
+      "Read(~/.claude/skills/gd-ai-coding/references/*)",
+      "Read(~/.claude/skills/gd-ai-coding/prompts/*)",
+      "Read(~/.claude/skills/gd-ai-coding/skills/**)",
+      "Read(~/.claude/skills/gd-ai-coding/templates/*)",
+      "Read(~/.claude/skills/gd-ai-coding/rules/*)",
+      "Bash(cat openspec/*)",
+      "Bash(cat .dac/*)",
+      "Bash(cat ~/.claude/skills/gd-ai-coding/**)",
+      "Bash(grep * openspec/*)",
+      "Bash(grep * .dac/*)",
+      "Bash(grep * ~/.claude/skills/gd-ai-coding/**)",
+      "Bash(find openspec/*)",
+      "Bash(find .dac/*)",
+      "Bash(find ~/.claude/skills/gd-ai-coding/**)",
+      "Bash(ls openspec*)",
+      "Bash(ls .dac*)",
+      "Bash(ls ~/.claude/skills/gd-ai-coding/**)",
+      "Bash(wc * openspec/*)",
+      "Bash(wc * .dac/*)",
+      "Bash(head * openspec/*)",
+      "Bash(head * .dac/*)",
+      "Bash(tail * openspec/*)",
+      "Bash(tail * .dac/*)",
+      "Bash(date +*)",
+      "Bash(date)"
+    ],
+    "deny": [
+      "Bash(rm -rf .dac*)",
+      "Bash(git push --force*)"
+    ]
+  }
+}

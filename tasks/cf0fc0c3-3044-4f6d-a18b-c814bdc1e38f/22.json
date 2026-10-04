@@ -1,0 +1,8 @@
+{
+  "id": "22",
+  "subject": "确认并落地工具续行兼容修复",
+  "description": "待用户确认：1）仅修改 convert.rs，在有效 tool_result 且检测到 Claude Code 规则包络时，向当前消息追加已实测的通用流程检查提示；不改变规则、历史、工具定义、会话标识。2）在 history_cache.rs 添加条件边界与 h0/历史/会话/工具不变的回归测试。3）展示完整增量 diff 并取得变更授权后，先验证测试失败，再实现并运行 Rust 测试、格式与 Clippy，最后独立增量 CR。不改本地 Claude Code 配置，不提交或部署。",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

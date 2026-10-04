@@ -1,0 +1,9 @@
+{
+  "id": "30",
+  "subject": "侧栏版本号更新小红点",
+  "description": "侧栏版本号旁新增更新红点：前端直查 GitHub releases/latest，semver 比较，仅前端 3 文件改动，CR 已 PASS。",
+  "activeForm": "实现版本更新红点",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

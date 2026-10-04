@@ -1,0 +1,9 @@
+{
+  "id": "29",
+  "subject": "审查 cr-result.md 并修复 Critical #1（cfg(unix)）",
+  "description": "分析 cr-result.md 全部条目，确认仅 Critical #1（Windows 编译失败）为真实问题；修复后测试+fmt/clippy+CR。",
+  "activeForm": "审查并修复 cfg(unix) 问题",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

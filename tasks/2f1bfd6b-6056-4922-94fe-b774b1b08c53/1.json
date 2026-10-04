@@ -1,9 +1,0 @@
-{
-  "id": "1",
-  "subject": "CR 审查增量 diff",
-  "description": "对新增 /contact_preference1_page 路由注册（占位 Scaffold + register 条目）的增量 diff 进行独立 sub-agent CR",
-  "activeForm": "运行强制 CR 审查",
-  "status": "completed",
-  "blocks": [],
-  "blockedBy": []
-}

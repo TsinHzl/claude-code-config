@@ -1,8 +1,0 @@
-{
-  "id": "2",
-  "subject": "阶段1：需求分析",
-  "description": "DDP/PRD 收集、设计稿获取、PRD LLM 处理、需求澄清、Spec 生成",
-  "status": "in_progress",
-  "blocks": [],
-  "blockedBy": []
-}

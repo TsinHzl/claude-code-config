@@ -1,0 +1,13 @@
+{
+  "platform": "vue",
+  "language": "typescript",
+  "file_ext": [".vue", ".ts"],
+  "src_root": "src/",
+  "check_cmd": "",
+  "format_cmd": "",
+  "scaffold_enabled": false,
+  "naming_convention": {
+    "file": "kebab-case",
+    "class": "PascalCase"
+  }
+}

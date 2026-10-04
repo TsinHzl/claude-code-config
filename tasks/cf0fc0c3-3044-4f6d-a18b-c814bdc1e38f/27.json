@@ -1,0 +1,9 @@
+{
+  "id": "27",
+  "subject": "修复静默丢弃 #1/#3/#6 加日志",
+  "description": "按用户确认范围给 #1 handlers/stream.rs:300、#3 message.rs+history.rs、#6 stream/state.rs 三处静默丢弃加日志，零行为变化；修后测试+fmt/clippy+CR。",
+  "activeForm": "给静默丢弃路径加日志",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "21",
+  "subject": "验证工具结果续行提示的完整流程",
+  "description": "在已授权的隔离真实 Claude Code + Sonnet4.6 环境验证通用流程提醒，保留所有规则原文，不改本地配置；再核验缓存前缀与边界。",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

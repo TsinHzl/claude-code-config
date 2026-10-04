@@ -1,0 +1,13 @@
+{
+  "id": "17",
+  "subject": "执行 Sonnet 4.6 受控门控实验",
+  "description": "已完成1次连通性请求和16次Sonnet4.6真实上游门控请求，均账号47。短规则user/system各8/40行重复2次；Edit后Read与55000字符合成背景各13/40行重复2次。16/16发出预期工具，均HTTP200、tool_use停止、完整message_stop且无SSE error；后8次额外核验上游工具名称和tool_use_id与下游逐一一致。未执行模型请求的真实文件变更或独立CR，仅模拟历史工具结果测试下一响应，不能等同原始CC全链路复现。原配置和凭据SHA256未变，隔离服务已关闭。证据位于临时目录kiro-sonnet-investigation-cky1fxw4。",
+  "activeForm": "实测 Sonnet 4.6 门控行为",
+  "status": "completed",
+  "blocks": [
+    "18"
+  ],
+  "blockedBy": [
+    "16"
+  ]
+}

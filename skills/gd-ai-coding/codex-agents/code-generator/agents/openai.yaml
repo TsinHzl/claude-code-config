@@ -1,0 +1,6 @@
+interface:
+  display_name: "DAC Code Generator"
+  short_description: "Generate scoped Flutter code and repair supplied build failures"
+  default_prompt: "Use $dac-code-generator to implement only the supplied scope and report verification evidence."
+policy:
+  allow_implicit_invocation: false

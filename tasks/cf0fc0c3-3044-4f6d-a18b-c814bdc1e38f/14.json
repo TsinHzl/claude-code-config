@@ -1,0 +1,9 @@
+{
+  "id": "14",
+  "subject": "独立审查本次规则传递增量",
+  "description": "验证通过后将仅本次增量diff与审查规则交给独立code-reviewer；不重复审查4ef12db已有改动。完整呈现发现，仅按用户选择修复。未获请求不提交、不推送、不移除仍用于排查的日志。",
+  "activeForm": "审查本次规则传递增量",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

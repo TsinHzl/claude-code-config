@@ -1,0 +1,9 @@
+{
+  "id": "12",
+  "subject": "确认规则传递修复计划与完整差异",
+  "description": "核对当前分支及工作区，读取相关实现并准备第一批最小修复：内联system归并、角色校验、真实assistant prefill裁剪、原始输入诊断与全部工具覆盖、保持原始会话ID策略。用户最新指令要求不再提问，直接继续实施；不改工具描述上限或Schema白名单。",
+  "activeForm": "确认修复范围与完整差异",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "13",
+  "subject": "实现并验证 system 消息保留",
+  "description": "遵照用户最新不再提问指令实施。先补回归测试验证断言失败，再实现system归并、严格角色校验和prefill裁剪、脱敏完整性日志；验证历史缓存、会话ID、两个HTTP端点400、全部工具诊断。不调用真实上游。",
+  "activeForm": "实现并验证规则保留修复",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "24",
+  "subject": "CR 审查 body dump 增量",
+  "description": "code-reviewer sub-agent 审查 post_messages.rs 中 dump_kiro_request_body 增量 diff（63 行）。结果已返回：FAIL，1 条 high（0600 权限应移到文件创建时）、2 条 medium、2 条 low。",
+  "activeForm": "CR 审查 body dump 增量 diff",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,13 @@
+{
+  "platform": "ios",
+  "language": "swift",
+  "file_ext": [".swift"],
+  "src_root": "ios/",
+  "check_cmd": "",
+  "format_cmd": "",
+  "scaffold_enabled": false,
+  "naming_convention": {
+    "file": "PascalCase",
+    "class": "PascalCase"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "28",
+  "subject": "修复 cr-result.md 全部 5 条问题",
+  "description": "按用户确认修复 cr-result.md 全部问题：1) dump_kiro_request_body 加 cfg(unix)；2) compact 判定改用归并后 messages；3) dump 改 spawn_blocking + 时间戳碰撞计数；4) 空文本块跳过；5) history.rs shadow 重命名。修后测试+fmt/clippy+CR。",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,9 +1,0 @@
-{
-  "id": "2",
-  "subject": "阶段1：需求分析",
-  "description": "收集 DDP/PRD/设计稿 → LLM 精裁 → 需求澄清 → Spec 生成",
-  "activeForm": "需求分析与设计稿获取",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

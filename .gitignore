@@ -1,3 +1,4 @@
 .DS_Store
 *.backup.*.md
 .env
+plugins/cache/**/node_modules/

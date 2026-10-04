@@ -1,0 +1,9 @@
+{
+  "id": "15",
+  "subject": "核查新复现日志中的规则与运行版本",
+  "description": "已只读核查624行新日志并复核末段原始证据：新版诊断418事件、19请求，其中18带工具请求CR候选56007字符均完整匹配，Agent/AskUserQuestion均存在；Workflow和Bash仍有长度变化，全部Schema比较不同。未记录内联system候选、实际工具调用和stop_reason，因此不能归因本次CR遗漏，也不能证明具体构建版本。未修改源码或重启服务。",
+  "activeForm": "核查最新复现日志",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

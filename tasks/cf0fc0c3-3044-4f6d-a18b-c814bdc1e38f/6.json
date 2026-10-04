@@ -1,0 +1,8 @@
+{
+  "id": "6",
+  "subject": "补充流中断底层错误诊断",
+  "description": "已应用诊断补丁并通过全量712测试、生产严格Clippy、格式及diff检查；用户明确选择跳过CR。仅诊断增强，未重启部署，也未证实传输中断已修复。",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

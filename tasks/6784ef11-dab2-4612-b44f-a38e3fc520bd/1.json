@@ -1,9 +1,0 @@
-{
-  "id": "1",
-  "subject": "初始化",
-  "description": "env-checks.sh 环境依赖检查 + 初始化 .dac/ 工作目录 + 平台扫描",
-  "activeForm": "初始化环境与 DAC 状态",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

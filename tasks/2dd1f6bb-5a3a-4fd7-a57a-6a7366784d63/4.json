@@ -1,8 +1,0 @@
-{
-  "id": "4",
-  "subject": "阶段3：功能开发 (0/N)",
-  "description": "串行执行各 feature 的 codegen + CR",
-  "status": "pending",
-  "blocks": [],
-  "blockedBy": []
-}

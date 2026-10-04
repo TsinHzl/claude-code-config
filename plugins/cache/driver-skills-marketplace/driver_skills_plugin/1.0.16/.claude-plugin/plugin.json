@@ -1,0 +1,8 @@
+{
+    "name": "driver_skills_plugin",
+    "description": "司机端 Claude code 插件集合",
+    "version": "1.0.16",
+    "author": {
+        "name": "developer of IBT"
+    }
+}
