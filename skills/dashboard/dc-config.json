@@ -1,7 +1,0 @@
-{
-  "webhook_url": "https://im-dichat.xiaojukeji.com/api/hooks/incoming/67e7053d-02ce-4e44-89fe-b746b6830f2c",
-  "send_mode": "webhook",
-  "notify_nodes": ["developing", "开发中", "coding", "in_progress"],
-  "dashboard_url": "http://127.0.0.1:47890",
-  "cooldown_hours": 72
-}

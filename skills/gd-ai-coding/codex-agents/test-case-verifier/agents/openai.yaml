@@ -1,6 +1,0 @@
-interface:
-  display_name: "DAC Test Case Verifier"
-  short_description: "Independently verify UI and interaction scenarios"
-  default_prompt: "Use $dac-test-case-verifier to independently verify supplied UI scenarios against code."
-policy:
-  allow_implicit_invocation: false

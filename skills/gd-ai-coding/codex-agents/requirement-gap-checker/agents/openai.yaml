@@ -1,6 +1,0 @@
-interface:
-  display_name: "DAC Requirement Gap Checker"
-  short_description: "Independently verify PRD and OpenSpec coverage"
-  default_prompt: "Use $dac-requirement-gap-checker to independently check requirement coverage and return only evidence-backed findings."
-policy:
-  allow_implicit_invocation: false

@@ -10,7 +10,6 @@
     "code-simplifier@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "document-skills@anthropic-agent-skills": true,
-    "driver_skills_plugin@driver-skills-marketplace": true,
     "example-skills@anthropic-agent-skills": true,
     "figma@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
@@ -26,22 +25,11 @@
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1",
     "CLAUDE_CODE_PROPAGATE_TRACEPARENT": "1",
-    "DAC_CONFIG_HOME": "/Users/MacBook/.claude/skills/dashboard",
-    "DAC_RUNTIME": "claude",
-    "DAC_SKILL_HOME": "/Users/MacBook/.claude/skills/gd-ai-coding",
-    "DAC_STATE_HOME": "/Users/MacBook/.claude/skills/gd-ai-coding/state",
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_UPDATES": "1",
     "ENABLE_TOOL_SEARCH": "true"
   },
-  "extraKnownMarketplaces": {
-    "driver-skills-marketplace": {
-      "source": {
-        "source": "git",
-        "url": "git@git.xiaojukeji.com:global-driver/driver-skills.git"
-      }
-    }
-  },
+  "extraKnownMarketplaces": {},
   "hooks": {
     "Notification": [
       {
@@ -76,15 +64,6 @@
         "hooks": [
           {
             "command": "/Users/MacBook/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
-            "type": "command"
-          }
-        ],
-        "matcher": "Write|Edit|MultiEdit"
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash ~/.claude/skills/gd-ai-coding/scripts/metrics/write-trace-hook.sh",
             "type": "command"
           }
         ],
@@ -177,14 +156,6 @@
             "type": "command"
           }
         ]
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash ~/.claude/skills/gd-ai-coding/scripts/maintenance/silent-update.sh >/dev/null 2>&1 || true",
-            "type": "command"
-          }
-        ]
       }
     ],
     "Stop": [
@@ -236,14 +207,6 @@
         "@modelcontextprotocol/server-fetch"
       ],
       "command": "/opt/homebrew/bin/npx",
-      "type": "stdio"
-    },
-    "mastergo-proxy": {
-      "command": "/Users/MacBook/.npm-global/bin/mcp-proxy-generic",
-      "env": {
-        "MCP_API_URL": "http://api-kylin-xg02.intra.xiaojukeji.com/code_cr_test",
-        "MCP_RESPONSE_FORMAT": "errno"
-      },
       "type": "stdio"
     }
   },

@@ -34,13 +34,6 @@
     "excluded_from_stats": false,
     "updated_at": 1788315138000
   },
-  "T-IBT-649408": {
-    "reason_tag": "非业务代码",
-    "note": "技术埋点需求，正在借助gd-ai-coding开发中。",
-    "author": "李俊德",
-    "excluded_from_stats": true,
-    "updated_at": 1788271995000
-  },
   "T-IBT-653384": {
     "reason_tag": "非业务代码",
     "note": "",

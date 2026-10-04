@@ -1,6 +1,0 @@
-interface:
-  display_name: "DAC Code Reviewer"
-  short_description: "Independently review correctness, requirements, and security"
-  default_prompt: "Use $dac-code-reviewer to independently review the supplied change and return evidence-backed findings."
-policy:
-  allow_implicit_invocation: false

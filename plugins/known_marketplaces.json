@@ -1,13 +1,4 @@
 {
-  "gd-cc-marketplace": {
-    "source": {
-      "source": "git",
-      "url": "git@git.xiaojukeji.com:global-driver/gd_cc_plugins.git"
-    },
-    "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/gd-cc-marketplace",
-    "lastUpdated": "2026-08-07T09:22:17.428Z",
-    "autoUpdate": true
-  },
   "claude-plugins-official": {
     "source": {
       "source": "github",
@@ -23,14 +14,6 @@
     },
     "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/anthropic-agent-skills",
     "lastUpdated": "2026-08-07T07:15:35.667Z"
-  },
-  "driver-skills-marketplace": {
-    "source": {
-      "source": "git",
-      "url": "git@git.xiaojukeji.com:global-driver/driver-skills.git"
-    },
-    "installLocation": "/Users/MacBook/.claude/plugins/marketplaces/driver-skills-marketplace",
-    "lastUpdated": "2026-06-18T03:36:42.049Z"
   },
   "thedotmack": {
     "source": {

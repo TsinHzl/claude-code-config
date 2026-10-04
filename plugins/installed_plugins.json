@@ -1,16 +1,6 @@
 {
   "version": 2,
   "plugins": {
-    "gd_cc_plugin@gd-cc-marketplace": [
-      {
-        "scope": "user",
-        "installPath": "/Users/MacBook/.claude/plugins/cache/gd-cc-marketplace/gd_cc_plugin/1.0.16",
-        "version": "1.0.16",
-        "installedAt": "2026-01-19T10:22:44.291Z",
-        "lastUpdated": "2026-01-19T10:22:44.291Z",
-        "gitCommitSha": "d927035640b046cd06d835a2254ecbe65dedea62"
-      }
-    ],
     "document-skills@anthropic-agent-skills": [
       {
         "scope": "user",
@@ -331,25 +321,6 @@
         "installedAt": "2026-08-26T08:54:00.376Z",
         "lastUpdated": "2026-08-26T08:54:00.376Z",
         "gitCommitSha": "5dbfa0fade3058791bf8134b2bd441cb9d5f9a10",
-        "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
-      }
-    ],
-    "driver_skills_plugin@driver-skills-marketplace": [
-      {
-        "scope": "user",
-        "installPath": "/Users/MacBook/.claude/plugins/cache/driver-skills-marketplace/driver_skills_plugin/1.0.16",
-        "version": "1.0.16",
-        "installedAt": "2026-06-09T02:16:17.358Z",
-        "lastUpdated": "2026-06-18T03:36:42.054Z",
-        "gitCommitSha": "bd1852f356c829da80d6b092bc9afb042f896865"
-      },
-      {
-        "scope": "project",
-        "installPath": "/Users/MacBook/.claude/plugins/cache/driver-skills-marketplace/driver_skills_plugin/1.0.16",
-        "version": "1.0.16",
-        "installedAt": "2026-08-26T08:54:00.376Z",
-        "lastUpdated": "2026-08-26T08:54:00.376Z",
-        "gitCommitSha": "bd1852f356c829da80d6b092bc9afb042f896865",
         "projectPath": "/Users/MacBook/My Files/Code/sourcetree/working-files"
       }
     ],

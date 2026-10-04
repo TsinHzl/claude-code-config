@@ -1,6 +1,0 @@
-interface:
-  display_name: "DAC Test Case Generator"
-  short_description: "Generate executable tests and structured UI scenarios"
-  default_prompt: "Use $dac-test-case-generator to create tests and scenarios from the supplied requirement slice."
-policy:
-  allow_implicit_invocation: false
